@@ -1,1 +1,3 @@
-export { About as default } from "../routes/About"
+import { About } from "../routes/About";
+
+export default About;

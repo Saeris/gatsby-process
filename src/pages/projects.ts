@@ -1,8 +1,9 @@
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
+import { Projects } from "../routes/Projects";
 
-export { Projects as default } from "../routes/Projects"
+export default Projects;
 
-export const pageQuery = graphql`
+export const query = graphql`
   query Projects {
     projects: allProjectsYaml {
       nodes {
@@ -18,4 +19,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

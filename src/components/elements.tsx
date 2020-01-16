@@ -1,6 +1,5 @@
-import styled from 'styled-components'
-import { animated } from 'react-spring'
-
+import styled from "styled-components";
+import { animated } from "react-spring";
 import {
   space,
   color,
@@ -23,10 +22,10 @@ import {
   JustifyContentProps,
   AlignSelfProps,
   TextAlignProps,
-  FontSizeProps,
-} from 'styled-system'
+  FontSizeProps
+} from "styled-system";
 
-type BoxProps = SpaceProps & WidthProps & ColorProps & FlexProps & AlignSelfProps & TextAlignProps & FontSizeProps
+type BoxProps = SpaceProps & WidthProps & ColorProps & FlexProps & AlignSelfProps & TextAlignProps & FontSizeProps;
 
 export const Box = styled.div<BoxProps>`
   box-sizing: border-box;
@@ -37,11 +36,11 @@ export const Box = styled.div<BoxProps>`
   ${alignSelf}
   ${textAlign}
   ${fontSize}
-`
+`;
 
-Box.displayName = 'Box'
+Box.displayName = `Box`;
 
-type AnimatedBoxProps = SpaceProps & WidthProps & ColorProps & FlexProps & AlignSelfProps & TextAlignProps
+type AnimatedBoxProps = SpaceProps & WidthProps & ColorProps & FlexProps & AlignSelfProps & TextAlignProps;
 
 export const AnimatedBox = styled(animated.div)<AnimatedBoxProps>`
   box-sizing: border-box;
@@ -51,11 +50,11 @@ export const AnimatedBox = styled(animated.div)<AnimatedBoxProps>`
   ${flex}
   ${alignSelf}
   ${textAlign}
-`
+`;
 
-AnimatedBox.displayName = 'AnimatedBox'
+AnimatedBox.displayName = `AnimatedBox`;
 
-type FlexCompProps = SpaceProps & FlexWrapProps & FlexDirectionProps & AlignItemsProps & JustifyContentProps
+type FlexCompProps = SpaceProps & FlexWrapProps & FlexDirectionProps & AlignItemsProps & JustifyContentProps;
 
 export const Flex = styled.div<FlexCompProps>`
   display: flex;
@@ -64,11 +63,11 @@ export const Flex = styled.div<FlexCompProps>`
   ${flexDirection}
   ${alignItems}
   ${justifyContent}
-`
+`;
 
-Flex.displayName = 'Flex'
+Flex.displayName = `Flex`;
 
-type AnimatedFlexCompProps = SpaceProps & FlexWrapProps & FlexDirectionProps & AlignItemsProps & JustifyContentProps
+type AnimatedFlexCompProps = SpaceProps & FlexWrapProps & FlexDirectionProps & AlignItemsProps & JustifyContentProps;
 
 export const AnimatedFlex = styled(animated.div)<AnimatedFlexCompProps>`
   display: flex;
@@ -77,11 +76,11 @@ export const AnimatedFlex = styled(animated.div)<AnimatedFlexCompProps>`
   ${flexDirection}
   ${alignItems}
   ${justifyContent}
-`
+`;
 
-AnimatedFlex.displayName = 'AnimatedFlex'
+AnimatedFlex.displayName = `AnimatedFlex`;
 
-type ButtonProps = SpaceProps & WidthProps & ColorProps
+type ButtonProps = SpaceProps & WidthProps & ColorProps;
 
 export const Button = styled.button<ButtonProps>`
   border-radius: 1000rem;
@@ -94,6 +93,6 @@ export const Button = styled.button<ButtonProps>`
   ${space}
   ${width}
   ${color}
-`
+`;
 
-Button.displayName = 'Button'
+Button.displayName = `Button`;

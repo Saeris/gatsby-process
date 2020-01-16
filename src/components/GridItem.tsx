@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components"
-import { Link } from "gatsby"
+import styled, { css } from "styled-components";
+import { Link } from "gatsby";
 
 export const GridItem = styled(Link)(
   ({ theme }) => css`
@@ -41,4 +41,4 @@ export const GridItem = styled(Link)(
       }
     }
   `
-)
+);

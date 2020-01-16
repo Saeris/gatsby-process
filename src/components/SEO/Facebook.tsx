@@ -1,25 +1,17 @@
-import React from "react"
-import Helmet from "react-helmet"
+import React from "react";
+import Helmet from "react-helmet";
 
 interface FacebookProps {
-  url: string
-  title: string
-  desc: string
-  image: string
-  locale: string
-  name?: string
-  type?: string
+  url: string;
+  title: string;
+  desc: string;
+  image: string;
+  locale: string;
+  name?: string;
+  type?: string;
 }
 
-export const Facebook: React.FC<FacebookProps> = ({
-  url,
-  title,
-  desc,
-  image,
-  locale,
-  name = "",
-  type = "website"
-}) => (
+export const Facebook: React.FC<FacebookProps> = ({ url, title, desc, image, locale, name = ``, type = `website` }) => (
   <Helmet>
     {name && <meta property="og:site_name" content={name} />}
     <meta property="og:locale" content={locale} />
@@ -30,4 +22,4 @@ export const Facebook: React.FC<FacebookProps> = ({
     <meta property="og:image" content={image} />
     <meta property="og:image:alt" content={desc} />
   </Helmet>
-)
+);

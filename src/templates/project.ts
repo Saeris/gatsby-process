@@ -1,11 +1,12 @@
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
+import { Project } from "../routes/Projects/Project";
 
-export { Project as default } from "../routes/Projects/Project"
+export default Project;
 
-export const pageQuery = graphql`
+export const query = graphql`
   query ProjectTemplate($slug: String!, $images: String!) {
     project: projectsYaml(slug: { eq: $slug }) {
-      title_detail
+      titleDetail: title_detail
       color
       category
       desc
@@ -24,10 +25,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    images: allFile(
-      filter: { relativePath: { regex: $images } }
-      sort: { fields: name, order: ASC }
-    ) {
+    images: allFile(filter: { relativePath: { regex: $images } }, sort: { fields: name, order: ASC }) {
       nodes {
         name
         childImageSharp {
@@ -38,4 +36,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

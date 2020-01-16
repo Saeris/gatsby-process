@@ -1,12 +1,12 @@
-import styled, { css } from "styled-components"
-import { transparentize, readableColor } from "polished"
-import { animated } from "react-spring"
-import { Box, AnimatedBox, Button } from "../../../components"
+import styled, { css } from "styled-components";
+import { transparentize, readableColor } from "polished";
+import { animated } from "react-spring";
+import { Box, AnimatedBox, Button } from "../../../components";
 
 export const PBox = styled(AnimatedBox)`
   max-width: 1400px;
   margin: 0 auto;
-`
+`;
 
 export const Content = styled(Box)<{ bg: string }>(
   ({ theme, bg }) => css`
@@ -20,7 +20,7 @@ export const Content = styled(Box)<{ bg: string }>(
       }
     }
   `
-)
+);
 
 export const Category = styled(AnimatedBox)(
   ({ theme }) => css`
@@ -28,7 +28,7 @@ export const Category = styled(AnimatedBox)(
     letter-spacing: 0.05em;
     text-transform: uppercase;
   `
-)
+);
 
 export const Description = styled(animated.div)`
   max-width: 960px;
@@ -36,11 +36,11 @@ export const Description = styled(animated.div)`
   letter-spacing: -0.003em;
   --baseline-multiplier: 0.179;
   --x-height-multiplier: 0.35;
-`
+`;
 
 export const PButton = styled(Button)<{ color: string }>(
   ({ color }) => css`
-    background: ${color === "white" ? "black" : color};
-    color: ${readableColor(color === "white" ? "black" : color)};
+    background: ${color === `white` ? `black` : color};
+    color: ${readableColor(color === `white` ? `black` : color)};
   `
-)
+);

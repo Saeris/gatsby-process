@@ -1,13 +1,11 @@
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
+import { Instagram } from "../routes/Instagram";
 
-export { Instagram as default } from "../routes/Instagram"
+export default Instagram;
 
-export const pageQuery = graphql`
+export const query = graphql`
   query Instagram {
-    instagram: allInstaNode(
-      sort: { fields: timestamp, order: DESC }
-      limit: 30
-    ) {
+    instagram: allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 30) {
       nodes {
         caption
         id
@@ -23,4 +21,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

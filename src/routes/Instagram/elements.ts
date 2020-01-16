@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components"
-import { animated } from "react-spring"
-import { Flex } from "../../components"
+import styled, { css } from "styled-components";
+import { animated } from "react-spring";
+import { Flex } from "../../components";
 
 export const Grid = styled(animated.div)(
   ({ theme }) => css`
@@ -19,7 +19,7 @@ export const Grid = styled(animated.div)(
       grid-template-columns: 1fr;
     }
   `
-)
+);
 
 export const Overlay = styled.div`
   z-index: 2;
@@ -31,7 +31,7 @@ export const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.6);
   transition: all 0.3s ease 0s;
   opacity: 0;
-`
+`;
 
 export const Title = styled.div(
   ({ theme }) => css`
@@ -47,7 +47,7 @@ export const Title = styled.div(
       font-size: ${theme.fontSizes[1]};
     }
   `
-)
+);
 
 export const Bottom = styled(Flex)(
   ({ theme }) => css`
@@ -60,7 +60,7 @@ export const Bottom = styled(Flex)(
       font-size: ${theme.fontSizes[0]};
     }
   `
-)
+);
 
 export const Item = styled(animated.a)`
   position: relative;
@@ -85,7 +85,7 @@ export const Item = styled(animated.a)`
       opacity: 1;
     }
   }
-`
+`;
 
 export const Content = styled(Flex)(
   ({ theme }) => css`
@@ -97,9 +97,9 @@ export const Content = styled(Flex)(
     right: 0;
     padding: ${theme.space[5]};
   `
-)
+);
 
 export const HeartIcon = styled.img`
   width: 1.25rem;
   height: 1.25rem;
-`
+`;

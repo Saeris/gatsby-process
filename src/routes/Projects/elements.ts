@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components"
-import { animated } from "react-spring"
+import styled, { css } from "styled-components";
+import { animated } from "react-spring";
 
 export const Area = styled(animated.div)(
   ({ theme }) => css`
@@ -12,4 +12,4 @@ export const Area = styled(animated.div)(
       grid-auto-rows: 60vw;
     }
   `
-)
+);

@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components"
-import { animated } from "react-spring"
-import { GridItem } from "../../components"
+import styled, { css } from "styled-components";
+import { animated } from "react-spring";
+import { GridItem } from "../../components";
 
 export const Area = styled(animated.div)(
   ({ theme }) => css`
@@ -45,15 +45,15 @@ export const Area = styled(animated.div)(
         "instagram";
     }
   `
-)
+);
 
 export const FirstProject = styled(GridItem)`
   grid-area: first-project;
-`
+`;
 
 export const AboutUs = styled(GridItem)`
   grid-area: about-us;
-`
+`;
 
 export const ThreeProjects = styled.div(
   ({ theme }) => css`
@@ -66,8 +66,8 @@ export const ThreeProjects = styled.div(
       grid-template-rows: 1fr 1fr 1fr;
     }
   `
-)
+);
 
 export const Instagram = styled(GridItem)`
   grid-area: instagram;
-`
+`;

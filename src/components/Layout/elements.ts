@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components"
-import { readableColor } from "polished"
-import { Box, Flex } from "../elements"
+import styled, { css } from "styled-components";
+import { readableColor } from "polished";
+import { Box, Flex } from "../elements";
 
 export const Wrapper = styled.div(
   ({ theme }) => css`
@@ -15,7 +15,7 @@ export const Wrapper = styled.div(
       grid-template-columns: 1fr;
     }
   `
-)
+);
 
 export const SideBarInner = styled(Box)<{ bg: string }>(
   ({ theme, bg }) => css`
@@ -41,7 +41,7 @@ export const SideBarInner = styled(Box)<{ bg: string }>(
       fill: ${readableColor(`${bg}`)};
     }
   `
-)
+);
 
 export const Nav = styled(Flex)<{ color: string }>(
   ({ theme, color }) => css`
@@ -73,7 +73,7 @@ export const Nav = styled(Flex)<{ color: string }>(
       }
     }
   `
-)
+);
 
 export const Main = styled.main(
   ({ theme }) => css`
@@ -81,7 +81,7 @@ export const Main = styled.main(
   grid-column-start: 2;
 }
 `
-)
+);
 
 export const Footer = styled.footer<{ color: string }>(
   ({ theme, color }) => css`
@@ -89,7 +89,7 @@ export const Footer = styled.footer<{ color: string }>(
     bottom: 0;
     width: ${theme.sidebarWidth.big};
     background: ${color};
-    color: ${readableColor(`${color}`, `${theme.colors.grey}`, "#c3c3c3")};
+    color: ${readableColor(`${color}`, `${theme.colors.grey}`, `#c3c3c3`)};
 
     a {
       color: ${readableColor(`${color}`)};
@@ -108,4 +108,4 @@ export const Footer = styled.footer<{ color: string }>(
       width: 100%;
     }
   `
-)
+);

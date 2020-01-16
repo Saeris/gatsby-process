@@ -1,5 +1,5 @@
-import { createGlobalStyle, css } from "styled-components"
-import { Theme } from "./theme"
+import { createGlobalStyle, css } from "styled-components";
+import { Theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle<{ theme: Theme }>(
   ({ theme }) => css`
@@ -72,8 +72,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>(
       margin: 0;
       padding: 0;
       color: black;
-      font-family: "Work Sans", "-apple-system", "Roboto", "Helvetica", "Arial",
-        sans-serif;
+      font-family: "Work Sans", "-apple-system", "Roboto", "Helvetica", "Arial", sans-serif;
       background: white;
       font-size: 18px;
     }
@@ -217,4 +216,4 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>(
       touch-action: manipulation;
     }
   `
-)
+);
