@@ -1,5 +1,7 @@
 import { createGlobalStyle, css } from "styled-components";
 import { Theme } from "./theme";
+import "typeface-work-sans";
+import "typeface-montserrat";
 
 export const GlobalStyles = createGlobalStyle<{ theme: Theme }>(
   ({ theme }) => css`

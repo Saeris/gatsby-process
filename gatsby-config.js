@@ -11,16 +11,38 @@ module.exports = {
   siteMetadata: {
     siteUrl: config.siteUrl + pathPrefix,
     pathPrefix,
-    title: config.siteTitle,
     titleAlt: config.siteTitleAlt,
     description: config.siteDescription,
     logo: config.siteLogo,
-    headline: config.siteHeadline,
     siteLanguage: config.siteLanguage,
     ogLanguage: config.ogLanguage,
-    author: config.author,
+    author: `Rachel Taylor`,
     twitter: config.userTwitter,
-    facebook: config.ogSiteName
+    facebook: config.ogSiteName,
+    title: `Rachel Taylor`,
+    headline: `Graphic Designer & Illustrator`,
+    navLinks: [
+      {
+        children: `Projects`,
+        to: `/projects`,
+        external: false
+      },
+      {
+        children: `About`,
+        to: `/about`,
+        external: false
+      },
+      {
+        children: `Contact`,
+        to: `/contact`,
+        external: false
+      },
+      {
+        children: `LinkedIn`,
+        to: `https://www.linkedin.com/in/rachel-n-taylor/`,
+        external: true
+      }
+    ]
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
