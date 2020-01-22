@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 import { useSpring, config } from "react-spring";
-import { Layout, GridItem, SEO } from "../../components";
+import { Layout, GridItem } from "../../components";
 import { ChildImageSharp } from "../../types";
 import { Area, FirstProject, AboutUs, ThreeProjects, Instagram } from "./elements";
 
@@ -33,7 +33,6 @@ export const Home: React.FC<HomeProps> = ({ data: { firstProject, threeProjects,
 
   return (
     <Layout>
-      <SEO />
       <Area style={pageAnimation}>
         <FirstProject to={firstProject.slug} aria-label={`View project "${firstProject.title}"`}>
           <Img fluid={firstProject.cover.childImageSharp.fluid} />

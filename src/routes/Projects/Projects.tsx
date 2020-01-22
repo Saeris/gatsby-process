@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 import { config, useSpring } from "react-spring";
-import { Layout, GridItem, SEO } from "../../components";
+import { Layout, GridItem } from "../../components";
 import { ChildImageSharp } from "../../types";
 import { Area } from "./elements";
 
@@ -9,9 +9,13 @@ interface ProjectsProps {
   data: {
     projects: {
       nodes: {
-        title: string;
-        slug: string;
-        cover: ChildImageSharp;
+        id: string;
+        frontmatter: {
+          slug: string;
+          banner: ChildImageSharp;
+          title: string;
+          client: string;
+        };
       }[];
     };
   };
@@ -25,13 +29,13 @@ export const Projects: React.FC<ProjectsProps> = ({ data: { projects } }) => {
   });
 
   return (
-    <Layout color="#000">
-      <SEO title="Projects | Jodie" />
+    <Layout>
       <Area style={pageAnimation}>
-        {projects.nodes.map(project => (
-          <GridItem key={project.slug} to={project.slug} aria-label={`View project "${project.title}"`}>
-            <Img fluid={project.cover.childImageSharp.fluid} />
-            <span>{project.title}</span>
+        {projects.nodes.map(({ frontmatter: { slug, banner, title, client } }) => (
+          <GridItem key={slug} to={`/projects/${slug}`} aria-label={`View project "${title}"`}>
+            <Img fluid={banner.childImageSharp.fluid} />
+            <span>{title}</span>
+            <span>{client}</span>
           </GridItem>
         ))}
       </Area>

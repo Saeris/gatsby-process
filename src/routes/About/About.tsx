@@ -1,6 +1,6 @@
 import React from "react";
 import { config, useSpring } from "react-spring";
-import { Layout, AnimatedBox, SEO } from "../../components";
+import { Layout, AnimatedBox } from "../../components";
 
 export const About: React.FC = () => {
   const pageAnimation = useSpring({
@@ -11,7 +11,6 @@ export const About: React.FC = () => {
 
   return (
     <Layout>
-      <SEO title="About | Jodie" desc="Hi. I'm LekoArts! You can visit my website or my other Gatsby projects." />
       <AnimatedBox style={pageAnimation} py={[6, 6, 6, 8]} px={[6, 6, 8, 6, 8, 13]}>
         <h1>Hi. I'm LekoArts!</h1>
         <p>

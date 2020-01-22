@@ -1,37 +1,25 @@
-// graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
-const wrapper = async promise => {
-  const result = await promise;
-  if (result.errors) {
-    throw result.errors;
-  }
-  return result;
-};
-
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const projectTemplate = require.resolve(`./src/templates/project.ts`);
-
-  const result = await wrapper(
-    graphql(`
-      {
-        projects: allProjectsYaml {
-          nodes {
+  const getProjects = await graphql(`
+    query GetProjects {
+      projects: allMdx(filter: { fileAbsolutePath: { regex: "/projects/" } }) {
+        nodes {
+          id
+          frontmatter {
             slug
-            images
           }
         }
       }
-    `)
-  );
+    }
+  `);
 
-  result.data.projects.nodes.forEach(node => {
+  getProjects.data.projects.nodes.forEach(({ id, frontmatter: { slug } }) => {
     createPage({
-      path: node.slug,
-      component: projectTemplate,
+      path: `projects/${slug}`,
+      component: require.resolve(`./src/templates/project.ts`),
       context: {
-        slug: node.slug,
-        images: `/${node.images}/`
+        id
       }
     });
   });

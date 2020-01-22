@@ -50,8 +50,18 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-transformer-yaml`,
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/content/projects`
+      }
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        defaultLayouts: {
+          posts: require.resolve(`./src/templates/project.ts`)
+        },
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -65,20 +75,6 @@ module.exports = {
           }
         ],
         extensions: [`.mdx`, `.md`]
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `projects`,
-        path: `${__dirname}/content/projects`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `config`,
-        path: `${__dirname}/config`
       }
     },
     {
