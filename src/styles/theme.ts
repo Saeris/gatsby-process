@@ -1,3 +1,6 @@
+import "typeface-montserrat";
+import "typeface-fira-code";
+
 export interface Bounds {
   min: number;
   max: number;
@@ -10,18 +13,90 @@ export interface Theme {
     lessThan: (size: Bounds) => string;
     size: (size: Bounds) => string;
   };
-  breakpoints: string[];
-  fontSizes: string[];
+  breakpoints: {
+    xsmall: { min: 0, max: 599 },
+    small: { min: 600, max: 779 },
+    medium: { min: 780, max: 979 },
+    large: { min: 980, max: 1279 },
+    xlarge: { min: 1280, max: 1339 },
+    xxlarge: { min: 1340, max: 999e308 }
+  };
+  fonts: {
+    primary: "'Montserrat', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif";
+    code: "'Fira Code', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace";
+  };
+  fontSizes: {
+    /** Footer Text, Captions, Code Blocks */
+    tiny: "1.8rem";
+    /** Body Text, H6 */
+    body: "2.15rem";
+    /** Form Elements, H5 */
+    form: "2.8rem";
+    /** H4 */
+    headline: "3.2rem";
+    /** H3 */
+    subtitle: "3.75rem";
+    /** H1, H2 */
+    title: "4.8rem";
+  };
+  weights: {
+    thin: 100;
+    extralight: 200;
+    light: 300;
+    regular: 400;
+    medium: 500;
+    semibold: 600;
+    bold: 700;
+    extrabold: 800;
+  };
   colors: {
-    [key: string]: string;
+    primary: {
+      light: "#76DAFE";
+      normal: "#00A3E0";
+      dark: "#008ABC";
+    };
+    secondary: {
+      light: "#FD1F9E";
+      normal: "#D9027D";
+      dark: "#A1025C";
+    };
+    tertiary: {
+      light: "#FEDE5A";
+      normal: "#FEDD00";
+      dark: "#F2B903";
+    };
+    grays: {
+      100: "#F9F9F9";
+      200: "#F3EFEB"; // ltgray
+      300: "#EAE7E2"; // mdgray
+      400: "#DEDAD4";
+      500: "#D7D4CD"; // wmgray
+      600: "#B2AEA6";
+      700: "#7C7A75";
+      800: "#56534F"; // dkgray
+      900: "#3C3C3C";
+    };
+    white: "#fff";
+    black: "#000";
   };
-  space: string[];
-  fontWeights: {
-    [key: string]: number;
-  };
-  sidebarWidth: {
-    [key: string]: string;
-  };
+  padding: (
+    "0.4rem"
+    | "0.8rem"
+    | "1.2rem"
+    | "1.6rem"
+    | "2rem"
+    | "2.4rem"
+    | "2.8rem"
+    | "3.2rem"
+    | "3.6rem"
+    | "4rem"
+  )[];
+  corners: (
+    "0.4rem"
+    | "0.6rem"
+    | "0.8rem"
+    | "1.2rem"
+  )[];
 }
 
 export const theme: Theme = {
@@ -50,37 +125,82 @@ export const theme: Theme = {
       return theme.media.between(size, size);
     }
   },
-  breakpoints: [`480px`, `650px`, `1000px`, `1200px`, `1400px`],
-  fontSizes: [`1rem`, `1.2rem`, `1.44rem`, `1.728rem`, `2.074rem`, `2.488rem`],
+  breakpoints: {
+    xsmall: { min: 0, max: 599 },
+    small: { min: 600, max: 779 },
+    medium: { min: 780, max: 979 },
+    large: { min: 980, max: 1279 },
+    xlarge: { min: 1280, max: 1339 },
+    xxlarge: { min: 1340, max: 999e308 }
+  },
+  fonts: {
+    primary: `'Montserrat', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif`,
+    code: `'Fira Code', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace`
+  },
+  fontSizes: {
+    tiny: `1.8rem`,
+    body: `2.15rem`,
+    form: `2.8rem`,
+    headline: `3.2rem`,
+    subtitle: `3.75rem`,
+    title: `4.8rem`
+  },
+  weights: {
+    thin: 100,
+    extralight: 200,
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800
+  },
   colors: {
-    primary: `#c66131`,
-    secondary: `#494992`,
-    grey: `#58545a`,
-    shade: `#f5f5f5`
+    primary: {
+      light: `#76DAFE`,
+      normal: `#00A3E0`,
+      dark: `#008ABC`
+    },
+    secondary: {
+      light: `#FD1F9E`,
+      normal: `#D9027D`,
+      dark: `#A1025C`
+    },
+    tertiary: {
+      light: `#FEDE5A`,
+      normal: `#FEDD00`,
+      dark: `#F2B903`
+    },
+    grays: {
+      100: `#F9F9F9`,
+      200: `#F3EFEB`, // ltgray
+      300: `#EAE7E2`, // mdgray
+      400: `#DEDAD4`,
+      500: `#D7D4CD`, // wmgray
+      600: `#B2AEA6`,
+      700: `#7C7A75`,
+      800: `#56534F`, // dkgray
+      900: `#3C3C3C`
+    },
+    white: `#fff`,
+    black: `#000`
   },
-  space: [
-    `0`,
-    `0.25rem`,
-    `0.5rem`,
-    `0.75rem`,
-    `1rem`,
-    `1.25rem`,
-    `1.5rem`,
+  padding: [
+    `0.4rem`,
+    `0.8rem`,
+    `1.2rem`,
+    `1.6rem`,
     `2rem`,
-    `2.5rem`,
-    `3rem`,
-    `4rem`,
-    `6rem`,
-    `8rem`,
-    `12rem`,
-    `16rem`
+    `2.4rem`,
+    `2.8rem`,
+    `3.2rem`,
+    `3.6rem`,
+    `4rem`
   ],
-  fontWeights: {
-    normal: 400,
-    bold: 700
-  },
-  sidebarWidth: {
-    big: `375px`,
-    normal: `320px`
-  }
+  corners: [
+    `0.4rem`,
+    `0.6rem`,
+    `0.8rem`,
+    `1.2rem`
+  ]
 };

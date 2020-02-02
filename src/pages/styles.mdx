@@ -1,0 +1,219 @@
+import { object, string, number } from 'yup';
+import { Centered, Button, Form, Input, Group, Checkbox, RadioGroup, Radio, Pagination } from "../components";
+
+# Typography
+
+# H1 • MONTSERRAT EXTRABOLD • 48PX ALL CAPS • INCREASED LETTER-SPACE
+
+## H2 • MONTSERRAT ITALIC • 48PX ALL CAPS • INCREASED LETTER-SPACE
+
+### H3 • Montserrat Bold • 37.5px increased letter-space
+
+#### H4 • MONTSERRAT REGULAR • 32PX ALL CAPS
+
+##### H5 • Montserrat Italic • 28px
+
+###### H6 • MONTSERRAT MEDIUM ITALIC • 21.5PX • ALL CAPS
+
+This is body copy using Montserrat 21.5px. Leading is 150% of the font size.
+The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet.
+
+_Emphasis Text_
+**Strong Text**
+~~Strikethrough Text~~
+[Internal Link](/)
+[External Link](http://www.twitter.com/)
+
+## Quoting
+
+The HTML blockquote element defines a long block quotation in the HTML document from another source.
+
+> “Creativity is allowing yourself to make mistakes. Design is knowing which ones to keep.” <cite>― Scott Adams</cite>
+
+A URL for the source of the quotation may be given using the cite attribute, while a text representation of the source can be given using the &lt;cite&gt; element.
+
+---
+
+## Images
+
+![alt text](../images/about-us.jpg "The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet.")
+
+---
+
+## Lists
+
+### Unordered Lists
+
+Groups a collection of items that do not have a numerical ordering, and their order in the list is meaningless.
+
+- Donec non tortor in arcu mollis feugiat
+- Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+- Donec id eros eget quam aliquam gravida
+- Vivamus convallis urna id felis
+- Nulla porta tempus sapien
+
+### Ordered Lists
+
+Represents a list of items. The only difference from the unordered list is that the order of the items is meaningful.
+
+1. Donec non tortor in arcu mollis feugiat
+2. Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+3. Donec id eros eget quam aliquam gravida
+4. Vivamus convallis urna id felis
+5. Nulla porta tempus sapien
+6. Donec non tortor in arcu mollis feugiat
+7. Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+8. Donec id eros eget quam aliquam gravida
+9. Vivamus convallis urna id felis
+10. Nulla porta tempus sapien
+
+### Definition Lists
+
+First Term
+  ~ First Definitions
+Second Term
+  ~ Second Definition 1
+
+---
+
+## Formatted Text
+
+### Code Snippets
+
+This is a code snippet `const foo = "bar"` displayed inline with other text.
+
+### Code Blocks
+
+```css {2}
+body {
+  color: red;
+}
+```
+
+### Tables
+
+| First name | Last name |
+| ---------- | --------- |
+| John       | Doe       |
+| Jane       | Doe       |
+
+---
+
+## Form Elements
+
+<Centered>
+
+  ### Buttons
+
+  <Button>Primary Button</Button>
+  <br />
+  <Button secondary>Secondary Button</Button>
+  <br />
+  <Button danger>Danger Button</Button>
+  <br />
+  <Button disabled>Disabled Button</Button>
+
+  ### Text Inputs
+
+  <Form
+    baseId="text-inputs"
+    autoComplete="new-password"
+    values={{
+      passive: ``,
+      active: `This is a Valid Value`,
+      error: `This is an Invalid Value`,
+      disabled: ``
+    }}
+    validateOnBlur
+    validateOnChange
+    onValidate={values =>
+      object({
+        passive: string(),
+        active: string(),
+        error: number(),
+        disabled: string(),
+      }).validate(values, { abortEarly: false }).then(
+        () => {},
+        error => {
+          if (error.inner.length) {
+            throw error.inner.reduce(
+              (errors, curr) =>
+                set(errors, curr.path, curr.message),
+              {}
+            );
+          }
+        }
+      )
+    }
+  >
+    <Input type="text" data-lpignore="true" name="passive" placeholder="Passive Form Field - Montserrat Italic - 28px" />
+    <Input type="text" data-lpignore="true" name="active" placeholder="Active form field • Montserrat Italic • 28px" />
+    <Input type="url" required data-lpignore="true" name="error" placeholder="Error Form Field • Montserrat Italic • 28px" />
+    <Input type="text" disabled data-lpignore="true" name="disabled" placeholder="Disabled Form field • Montserrat Italic • 28px" />
+  </Form>
+
+  ### Checkboxes
+
+  <Form
+    baseId="checkboxes"
+    values={{
+      passive: false,
+      active: true,
+      error: undefined,
+      disabled: false,
+      checkboxGroup: [`active`]
+    }}
+    validateOnBlur
+    validateOnChange
+    onValidate={values => {
+      const errors = {};
+      if (!values.error) {
+        errors.error = "You must accept our not-so-evil conditions!";
+      }
+      if (Object.keys(errors).length) {
+        throw errors;
+      }
+    }}
+  >
+    <Group>
+      <Checkbox name="passive">Passive</Checkbox>
+      <Checkbox name="active">Active</Checkbox>
+      <Checkbox name="error">Error</Checkbox>
+      <Checkbox disabled name="disabled">Disabled</Checkbox>
+    </Group>
+    <Group name="checkboxGroup">
+      <Checkbox value="passive">Passive</Checkbox>
+      <Checkbox value="active">Active</Checkbox>
+      <Checkbox value="error">Error</Checkbox>
+      <Checkbox disabled value="disabled">Disabled</Checkbox>
+    </Group>
+  </Form>
+
+  ### Radio Buttons
+
+  <Form
+    baseId="radios"
+    values={{
+      radioGroup: `active`
+    }}
+    validateOnBlur
+    validateOnChange
+    onValidate={values => {
+      if (values.radioGroup === "error") {
+        const errors = { radioGroup: "Invalid choice!" };
+        throw errors;
+      }
+    }}
+  >
+    <RadioGroup name="radioGroup">
+      <Radio value="passive">Passive</Radio>
+      <Radio value="active">Active</Radio>
+      <Radio value="error">Error</Radio>
+      <Radio disabled value="disabled">Disabled</Radio>
+    </RadioGroup>
+  </Form>
+
+  ### Pagination
+
+  <Pagination pages={10} />
+</Centered>

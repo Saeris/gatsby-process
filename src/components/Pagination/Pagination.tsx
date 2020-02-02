@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MdFirstPage, MdChevronLeft, MdChevronRight, MdLastPage } from "react-icons/md";
 import { clamp, range } from "../../utils";
-import { Navigation, Controls, Button as DefaultButton } from "./elements";
+import { Navigation, Controls, Control, Button as DefaultButton } from "./elements";
 
 type NavButton = React.FC<{
   disabled?: boolean;
@@ -30,50 +30,50 @@ interface PaginationProps {
     toPrevious: () => void;
     toNext: () => void;
     toLast: () => void;
-  }) => React.ReactNode;
+  }) => React.ReactElement;
 }
 
-export const Pagination = ({
+export const Pagination: React.FC<PaginationProps> = ({
   onChange = () => {},
   neighbors = 2,
   pages = 1,
   initial = 1,
   loop = false,
-  numbers = false,
+  numbers = true,
   noNextPrev = false,
   noFirstLast = false,
   Button = DefaultButton,
   First = props => (
-    <li>
+    <Control>
       <Button {...props} aria-label="First">
         <MdFirstPage />
       </Button>
-    </li>
+    </Control>
   ),
   Previous = props => (
-    <li>
+    <Control>
       <Button {...props} aria-label="Previous">
         <MdChevronLeft />
       </Button>
-    </li>
+    </Control>
   ),
   Next = props => (
-    <li>
+    <Control>
       <Button {...props} aria-label="Next">
         <MdChevronRight />
       </Button>
-    </li>
+    </Control>
   ),
   Last = props => (
-    <li>
+    <Control>
       <Button {...props} aria-label="Last">
         <MdLastPage />
       </Button>
-    </li>
+    </Control>
   ),
   children,
   ...props
-}: PaginationProps) => {
+}) => {
   const [currentPage, setCurrentPage] = useState(initial);
 
   const fetchPageNumbers = () => {
@@ -128,19 +128,19 @@ export const Pagination = ({
   ) : (
     <Navigation {...props}>
       <Controls>
-        {noFirstLast ? <First disabled={currentPage === 1} onClick={handleFirst} /> : null}
-        {noNextPrev ? <Previous disabled={currentPage === 1} onClick={handlePrevious} /> : null}
+        {noFirstLast ? null : <First disabled={currentPage === 1} onClick={handleFirst} />}
+        {noNextPrev ? null : <Previous disabled={currentPage === 1} onClick={handlePrevious} />}
         {numbers
           ? fetchPageNumbers().map((page: number) => (
-              <li key={page}>
+              <Control key={page}>
                 <Button active={currentPage === page} disabled={currentPage === page} onClick={handleClick(page)}>
                   {page}
                 </Button>
-              </li>
+              </Control>
             ))
           : null}
-        {noNextPrev ? <Next disabled={currentPage === pages} onClick={handleNext} /> : null}
-        {noFirstLast ? <Last disabled={currentPage === pages} onClick={handleLast} /> : null}
+        {noNextPrev ? null : <Next disabled={currentPage === pages} onClick={handleNext} />}
+        {noFirstLast ? null : <Last disabled={currentPage === pages} onClick={handleLast} />}
       </Controls>
     </Navigation>
   );

@@ -1,44 +1,31 @@
 import React from "react";
-import Img from "gatsby-image";
-import { config, useSpring } from "react-spring";
-import { Layout, GridItem } from "../../components";
+import { Layout, CardList, Card } from "../../components";
 import { ChildImageSharp } from "../../types";
-import { Area } from "./elements";
+
+interface Project {
+  id: string;
+  frontmatter: {
+    slug: string;
+    banner: ChildImageSharp;
+    title: string;
+    client: string;
+  };
+}
 
 interface ProjectsProps {
   data: {
     projects: {
-      nodes: {
-        id: string;
-        frontmatter: {
-          slug: string;
-          banner: ChildImageSharp;
-          title: string;
-          client: string;
-        };
-      }[];
+      nodes: Project[];
     };
   };
 }
 
-export const Projects: React.FC<ProjectsProps> = ({ data: { projects } }) => {
-  const pageAnimation = useSpring({
-    config: config.slow,
-    from: { opacity: 0 },
-    to: { opacity: 1 }
-  });
-
-  return (
-    <Layout>
-      <Area style={pageAnimation}>
-        {projects.nodes.map(({ frontmatter: { slug, banner, title, client } }) => (
-          <GridItem key={slug} to={`/projects/${slug}`} aria-label={`View project "${title}"`}>
-            <Img fluid={banner.childImageSharp.fluid} />
-            <span>{title}</span>
-            <span>{client}</span>
-          </GridItem>
-        ))}
-      </Area>
-    </Layout>
-  );
-};
+export const Projects: React.FC<ProjectsProps> = ({ data: { projects } }) => (
+  <Layout>
+    <CardList>
+      {projects?.nodes?.map(({ id, frontmatter }) => (
+        <Card key={id} {...frontmatter} />
+      ))}
+    </CardList>
+  </Layout>
+);

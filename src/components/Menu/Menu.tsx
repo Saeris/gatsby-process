@@ -9,6 +9,7 @@ export interface MenuProps {
   onOpen?: () => void;
   onClose?: () => void;
   onToggle?: React.MouseEventHandler;
+  "aria-label"?: string;
 }
 
 export const Menu: React.FC<MenuProps> = ({
@@ -37,8 +38,7 @@ export const Menu: React.FC<MenuProps> = ({
       </MenuDisclosure>
       <List {...menu} aria-label={props[`aria-label`]}>
         {children && (children as React.ReactElement[]).length
-          ? /* eslint-disable react/no-array-index-key */
-            (children as React.ReactElement[])
+          ? (children as React.ReactElement[])
               .filter(child => child)
               .map((child, i) => cloneElement(Children.only(child), { ...menu, key: i }))
           : !Array.isArray(children) && cloneElement(Children.only(children as React.ReactElement), menu)}

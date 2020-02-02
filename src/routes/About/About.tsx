@@ -1,23 +1,12 @@
 import React from "react";
-import { config, useSpring } from "react-spring";
-import { Layout, AnimatedBox } from "../../components";
+import { Layout } from "../../components";
 
-export const About: React.FC = () => {
-  const pageAnimation = useSpring({
-    config: config.slow,
-    from: { opacity: 0 },
-    to: { opacity: 1 }
-  });
-
-  return (
-    <Layout>
-      <AnimatedBox style={pageAnimation} py={[6, 6, 6, 8]} px={[6, 6, 8, 6, 8, 13]}>
-        <h1>Hi. I'm LekoArts!</h1>
-        <p>
-          You can visit my <a href="https://www.lekoarts.de/en">website</a> or my other{` `}
-          <a href="https://gatsby-starter-portfolio.netlify.com">Gatsby projects</a>.
-        </p>
-      </AnimatedBox>
-    </Layout>
-  );
-};
+export const About: React.FC = () => (
+  <Layout>
+    <h1>Hi. I'm LekoArts!</h1>
+    <p>
+      You can visit my <a href="https://www.lekoarts.de/en">website</a> or my other{` `}
+      <a href="https://gatsby-starter-portfolio.netlify.com">Gatsby projects</a>.
+    </p>
+  </Layout>
+);

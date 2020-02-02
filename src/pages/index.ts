@@ -3,7 +3,7 @@ import { Projects } from "../routes/Projects";
 
 export default Projects;
 
-export const query = graphql`
+export const pageQuery = graphql`
   query Index {
     projects: allMdx(
       filter: { fileAbsolutePath: { regex: "/projects/" } }

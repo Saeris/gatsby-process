@@ -6,35 +6,17 @@ client: Audigy
 date: 2017-11-16
 ---
 
-# Filling in the Blanks
+# Newsletter Winter 2019
 
 Audigy’s Newsletter is printed mailing piece. The exterior spread is branded and customized for the client, but the interior spread is static to reduce printing costs.
 
-**Role** Lead Graphic Designer
-**For** Audigy
-**Date** 2019
-**Type** Direct Mail
+**Role** Lead Graphic Designer  
+**For** Audigy  
+**Date** 2019  
+**Type** Direct Mail  
 
-<figure>
-	<img src="./images/newsletter-winter-2019-01.jpg" alt="Winter Newsletter" />
-</figure>
-
-<figure>
-	<img src="./images/newsletter-winter-2019-02.jpg" alt="Interior spread" />
-	<figcaption>Interior spread</figcaption>
-</figure>
-
-<figure>
-	<img src="./images/newsletter-winter-2019-03.jpg" alt="Exterior spread including front article, back article, and two coupons" />
-	<figcaption>Exterior spread including front article, back article, and two coupons</figcaption>
-</figure>
-
-<figure>
-	<img src="./images/newsletter-winter-2019-04.jpg" alt="BExterior spread including front article, back article, and one coupon" />
-	<figcaption>BExterior spread including front article, back article, and one coupon</figcaption>
-</figure>
-
-<figure>
-	<img src="./images/newsletter-winter-2019-05.jpg" alt="Exterior spread including front article, back article, and no coupons" />
-	<figcaption>Exterior spread including front article, back article, and no coupons</figcaption>
-</figure>
+![](./images/newsletter-winter-2019-01.jpg "Winter Newsletter")  
+![](./images/newsletter-winter-2019-02.jpg "Interior spread")  
+![](./images/newsletter-winter-2019-03.jpg "Exterior spread including front article, back article, and two coupons")  
+![](./images/newsletter-winter-2019-04.jpg "Exterior spread including front article, back article, and one coupon")  
+![](./images/newsletter-winter-2019-05.jpg "Exterior spread including front article, back article, and no coupons")  

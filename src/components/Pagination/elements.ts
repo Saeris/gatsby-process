@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components";
 import { Button as BaseButton } from "reakit/Button";
-import { withoutProps } from "../../.utils";
+import { lighten } from "polished"
+import { withoutProps } from "../../utils";
 
 export const Navigation = styled.nav.attrs({
-  role: "navigation",
-  "aria-label": "Pagination Navigation"
+  role: `navigation`,
+  "aria-label": `Pagination Navigation`
 })``;
 
 export const Controls = styled.ul`
@@ -14,36 +15,45 @@ export const Controls = styled.ul`
   padding: 0;
 `;
 
+export const Control = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const Button = styled(withoutProps(`active`)(BaseButton))<{
   active: boolean;
 }>(
-  ({ active }) => css`
+  ({ active, theme }) => css`
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 34px;
-    height: 22px;
+    width: 4rem;
+    height: 3.2rem;
     padding: 0;
-    margin: 0 2px;
+    margin: 0 0.4rem;
     border: none;
-    background: ${active ? css`#40A9F3` : css`none`};
-    border-radius: 4px;
-    color: ${active ? css`#fff` : css`#b8b9ba`};
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
+    background: ${active ? theme.colors.primary.normal : theme.colors.grays[200]};
+    border-radius: ${theme.corners[0]};
+    color: ${active ? theme.colors.white : theme.colors.grays[800]};
+    font-family: ${theme.fonts.primary};
+    font-size: ${theme.fontSizes.tiny};
+    font-weight: ${theme.weights.bold};
     cursor: pointer;
 
     &:disabled {
-      color: ${active ? css`#fff` : css`#666`};
+      color: ${active ? theme.colors.white : theme.colors.grays[500]};
       cursor: default;
     }
 
     &:hover:not(:disabled),
     &:focus:not(:disabled) {
-      color: #fff;
-      background: ${active ? css`#40A9F3` : css`rgba(108, 174, 221, 0.2);`};
+      color: ${active ? theme.colors.white : theme.colors.black};
+      background: ${active ? theme.colors.primary.light : theme.colors.grays[300]};
+    }
+
+    &:focus {
+      outline: none;
     }
   `
 );

@@ -3,8 +3,8 @@ import { Project } from "../routes/Projects/Project";
 
 export default Project;
 
-export const query = graphql`
-  query GetProjecty($id: String!) {
+export const pageQuery = graphql`
+  query GetProject($id: String!) {
     project: mdx(id: { eq: $id }) {
       id
       frontmatter {

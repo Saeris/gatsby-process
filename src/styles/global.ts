@@ -1,90 +1,50 @@
 import { createGlobalStyle, css } from "styled-components";
-import { Theme } from "./theme";
-import "typeface-work-sans";
-import "typeface-montserrat";
 
-export const GlobalStyles = createGlobalStyle<{ theme: Theme }>(
+export const GlobalStyles = createGlobalStyle(
   ({ theme }) => css`
+    *,
     *::before,
     *::after {
       box-sizing: border-box;
     }
+
     ::selection {
-      color: white;
-      background-color: #f6993f;
+      color: ${theme.colors.black};
+      background-color: ${theme.colors.tertiary.normal};
     }
+
     html {
+      margin: 0;
+      border: 0;
       box-sizing: border-box;
-      border: 0;
-      margin: 0;
+      font-size: 62.5%;
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-weight: ${theme.fontWeights.bold};
-      }
-
-      h1 {
-        font-size: ${theme.fontSizes[5]};
-      }
-      h2 {
-        font-size: ${theme.fontSizes[4]};
-      }
-      h3 {
-        font-size: ${theme.fontSizes[3]};
-      }
-      h4 {
-        font-size: ${theme.fontSizes[2]};
-      }
-      h5 {
-        font-size: ${theme.fontSizes[1]};
-      }
-      h6 {
-        font-size: ${theme.fontSizes[0]};
-      }
-
-      @media (max-width: 600px) {
-        font-size: 16px;
-
-        h1 {
-          font-size: ${theme.fontSizes[4]};
-        }
-        h2 {
-          font-size: ${theme.fontSizes[3]};
-        }
-        h3 {
-          font-size: ${theme.fontSizes[2]};
-        }
-        h4 {
-          font-size: ${theme.fontSizes[1]};
-        }
-        h5 {
-          font-size: ${theme.fontSizes[0]};
-        }
-        h6 {
-          font-size: ${theme.fontSizes[0]};
-        }
+      ${theme.media.lessThan(theme.breakpoints.small)} {
+        font-size: calc(62.5% * 0.6);
       }
     }
+
     body {
-      border: 0;
-      margin: 0;
       padding: 0;
-      color: black;
-      font-family: "Work Sans", "-apple-system", "Roboto", "Helvetica", "Arial", sans-serif;
-      background: white;
-      font-size: 18px;
+      margin: 0;
+      border: 0;
+      background: ${theme.colors.white};
+      color: ${theme.colors.black};
+      font-family: ${theme.fonts.primary};
+      font-size: ${theme.fontSizes.body};
     }
+
     a {
-      transition: all 0.3s ease-in-out;
-      color: black;
-      text-decoration: underline;
+      border-bottom: 2px solid ${theme.colors.primary.normal};
+      color: ${theme.colors.primary.normal};
+      text-decoration: none;
+      transition: border 0.3s ease-in-out, color 0.3s ease-in-out;
+
       &:hover,
       &:focus {
-        color: ${theme.colors.primary};
+        border-color: ${theme.colors.secondary.normal};
+        color: ${theme.colors.secondary.normal};
+        text-decoration: none;
       }
     }
 

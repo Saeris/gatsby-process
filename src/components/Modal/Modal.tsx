@@ -6,6 +6,7 @@ import { Backdrop, Container } from "./elements";
 
 export interface ModalProps extends ComponentProps<typeof Button> {
   label?: string;
+  as?: React.ElementType;
   backdrop?: React.ElementType;
   container?: React.ElementType;
   isOpen?: boolean;
@@ -19,7 +20,7 @@ export const Modal: React.FC<ModalProps> = ({
   backdrop = Backdrop,
   container = Container,
   isOpen,
-  onClose = () => undefined,
+  onClose = () => {},
   children,
   ...props
 }) => {
@@ -43,7 +44,7 @@ export const Modal: React.FC<ModalProps> = ({
             as={container}
             aria-label={label}
             modal={false}
-            visible={typeof isOpen !== "undefined" ? isOpen : dialog.visible}
+            visible={typeof isOpen === `undefined` ? dialog.visible : isOpen}
             hide={onHide}
           >
             {typeof children === `function`

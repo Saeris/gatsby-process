@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { Link } from "../../Link";
+import { tracking } from "../../../utils";
 
 export const Container = styled.header(
   ({ theme }) => css`
@@ -9,7 +10,7 @@ export const Container = styled.header(
     display: flex;
     width: 100%;
     padding: 0;
-    background-color: #fff;
+    background-color: ${theme.colors.grays[100]};
   `
 );
 
@@ -20,7 +21,7 @@ export const Navigation = styled.nav(
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 24px 36px;
+    padding: 2.4rem 3.6rem;
     box-sizing: border-box;
   `
 );
@@ -36,10 +37,9 @@ export const Title = styled.h1(
   ({ theme }) => css`
     padding: 0;
     margin: 0;
-    color: #2e2e2e;
-    font-family: "Montserrat";
-    font-size: 28px;
-    letter-spacing: 2px;
+    color: ${theme.colors.black};
+    font-size: ${theme.fontSizes.form};
+    letter-spacing: ${tracking(50)};
     text-transform: uppercase;
   `
 );
@@ -47,10 +47,9 @@ export const Title = styled.h1(
 export const Headline = styled.h2(
   ({ theme }) => css`
     margin: 0;
-    color: #999;
-    font-family: "Montserrat";
-    font-size: 18px;
-    font-weight: 400;
+    color: ${theme.colors.grays[800]};
+    font-size: ${theme.fontSizes.tiny};
+    font-weight: ${theme.weights.light};
   `
 );
 
@@ -65,12 +64,36 @@ export const Links = styled.ul(
 
 export const NavItem = styled.li(
   () => css`
-    padding: 0 6px;
+    padding: 0 0.6rem;
   `
 );
 
 export const NavLink = styled(Link)(
   ({ theme }) => css`
+    border: none;
+    color: ${theme.colors.black};
     text-decoration: none;
+
+    &:focus {
+			outline: none;
+		}
+
+    &.active {
+      color: ${theme.colors.secondary.dark};
+    }
+
+    h1, h2 {
+      transition: color 0.3s ease-in-out;
+    }
+
+    &:hover, &:focus {
+      h1, h2 {
+        color: ${theme.colors.secondary.normal};
+      }
+
+      &.active {
+        color: ${theme.colors.secondary.normal};
+      }
+    }
   `
 );

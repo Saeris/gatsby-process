@@ -3,6 +3,7 @@ import React from "react";
 
 export const withoutProps = (...omitProps: string[]) => {
   const omitSingle = (object = {}, key: string) => {
+    // eslint-disable-next-line no-undefined
     if (key === null || key === undefined || !(key in object)) return object;
     const { [key]: deleted, ...otherKeys }: { [key: string]: any } = object;
     return otherKeys;

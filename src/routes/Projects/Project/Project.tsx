@@ -1,6 +1,6 @@
 import React from "react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Layout } from "../../../components";
+import { MarkdownLayout } from "../../../components";
 
 interface ProjectProps {
   data: {
@@ -16,9 +16,11 @@ interface ProjectProps {
 }
 
 export const Project: React.FC<ProjectProps> = ({ data: { project } }) => (
-  <Layout seo={{
-    title: project.frontmatter.title
-  }}>
+  <MarkdownLayout
+    seo={{
+      title: project.frontmatter.title
+    }}
+  >
     <MDXRenderer>{project.body}</MDXRenderer>
-  </Layout>
+  </MarkdownLayout>
 );

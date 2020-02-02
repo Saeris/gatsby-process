@@ -21,7 +21,8 @@ module.exports = {
     "jsx-a11y", // https://github.com/evcohen/eslint-plugin-jsx-a11y
     "react", // https://github.com/yannickcr/eslint-plugin-react
     "react-hooks", // https://github.com/facebook/react/tree/master/packages/eslint-plugin-react-hooks
-    "jest" // https://github.com/jest-community/eslint-plugin-jest
+    "jest", // https://github.com/jest-community/eslint-plugin-jest
+    "graphql"
   ],
   settings: {
     polyfills: [`fetch`, `Promise`]
@@ -201,7 +202,7 @@ module.exports = {
     "id-blacklist": 0,
     "id-length": 0,
     "id-match": 0,
-    indent: [2, 2, { SwitchCase: 1 }],
+    indent: 0, // Incompatible with Prettier
     "jsx-quotes": [2, `prefer-double`],
     "key-spacing": 0,
     "keyword-spacing": [2, { before: true, after: true }],
@@ -257,8 +258,8 @@ module.exports = {
     "operator-linebreak": [2, `before`, { overrides: { "&&": `ignore`, "=": `ignore` } }],
     "padded-blocks": [2, `never`],
     "padding-line-between-statements": 0,
-    "quote-props": [2, "as-needed", { keywords: true }],
-    quotes: [2, `backtick`, `avoid-escape`],
+    "quote-props": [2, "as-needed"],
+    quotes: 0, // Conflicts with TypeScript, use TypeScript Plugin Rule Instead
     "require-jsdoc": 0,
     semi: [0, `never`],
     "semi-spacing": [2, { before: false, after: true }],
@@ -389,6 +390,7 @@ module.exports = {
     "@typescript-eslint/camelcase": 0,
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/no-unused-vars": ["error", { vars: "local", args: "none", ignoreRestSiblings: true }],
+    "@typescript-eslint/quotes": ["error", "backtick", { avoidEscape: true }],
 
     // promise
     "promise/catch-or-return": [2, { terminationMethod: [`catch`, `finally`] }],
@@ -396,6 +398,14 @@ module.exports = {
     "promise/no-return-wrap": 2,
     "promise/param-names": 2,
     "promise/prefer-await-to-then": 2,
-    "promise/prefer-await-to-callbacks": 2
+    "promise/prefer-await-to-callbacks": 2,
+
+    // graphql
+
+    'graphql/template-strings': ['error', {
+      env: 'apollo',
+      schemaJsonFilepath: `./schema.json`,
+      tagName: 'graphql',
+    }]
   }
 };

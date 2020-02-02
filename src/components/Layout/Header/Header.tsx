@@ -10,7 +10,6 @@ const query = graphql`
         headline
         navLinks {
           children
-          external
           to
         }
       }

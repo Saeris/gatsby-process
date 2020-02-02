@@ -2,53 +2,58 @@ require(`dotenv`).config({
   path: `.env`
 });
 
-const config = require(`./config`);
-
-const pathPrefix = config.pathPrefix === `/` ? `` : config.pathPrefix;
+const pathPrefix = `/`;
 
 module.exports = {
-  pathPrefix: config.pathPrefix,
+  pathPrefix,
   siteMetadata: {
-    siteUrl: config.siteUrl + pathPrefix,
+    siteUrl: `https://racheltaylor.design${pathPrefix}`,
     pathPrefix,
-    titleAlt: config.siteTitleAlt,
-    description: config.siteDescription,
-    logo: config.siteLogo,
-    siteLanguage: config.siteLanguage,
-    ogLanguage: config.ogLanguage,
+    titleAlt: `Rachel Taylor - Graphic Designer & Illustrator`,
+    description: `Personal graphic design and illustration portfolio of Rachel Taylor.`,
+    logo: `/logos/logo.png`,
+    siteLanguage: `en`,
+    ogLanguage: `en_US`,
     author: `Rachel Taylor`,
-    twitter: config.userTwitter,
-    facebook: config.ogSiteName,
+    twitter: ``,
+    facebook: ``,
     title: `Rachel Taylor`,
     headline: `Graphic Designer & Illustrator`,
     navLinks: [
       {
         children: `Projects`,
-        to: `/projects`,
-        external: false
+        to: `/projects`
       },
       {
         children: `About`,
-        to: `/about`,
-        external: false
+        to: `/about`
       },
       {
         children: `Contact`,
-        to: `/contact`,
-        external: false
+        to: `/contact`
       },
       {
         children: `LinkedIn`,
-        to: `https://www.linkedin.com/in/rachel-n-taylor/`,
-        external: true
+        to: `https://www.linkedin.com/in/rachel-n-taylor/`
       }
     ]
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        fileName: false
+      }
+    },
     `gatsby-plugin-typescript`,
-    `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-plugin-typegen`,
+      options: {
+        schemaOutputPath: `schema.json`,
+        typeDefsOutputPath: `types/graphql-types.ts`
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -60,20 +65,26 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         defaultLayouts: {
-          posts: require.resolve(`./src/templates/project.ts`)
+          default: require.resolve(`./src/components/Markdown/index.ts`)
         },
         gatsbyRemarkPlugins: [
+          `gatsby-remark-unwrap-images`,
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1035,
-              sizeByPixelDensity: true
+              maxWidth: 864,
+              linkImagesToOriginal: false,
+              backgroundColor: `transparent`,
+              tracedSVG: { color: `#D9027D` },
+              disableBgImage: true,
+              showCaptions: [`title`]
             }
           },
           {
             resolve: `gatsby-remark-copy-linked-files`
           }
         ],
+        remarkPlugins: [require(`remark-breaks`), require(`remark-heading-id`)],
         extensions: [`.mdx`, `.md`]
       }
     },
@@ -85,16 +96,9 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        access_token: process.env.ACCESS_TOKEN,
-        instagram_id: process.env.BUSINESS_ID
-      }
-    },
-    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: config.googleAnalyticsID
+        trackingId: `UA-XXXXXX-X`
       }
     },
     `gatsby-plugin-sharp`,
@@ -103,12 +107,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: config.siteTitle,
-        short_name: config.siteTitleShort,
-        description: config.siteDescription,
-        start_url: config.pathPrefix,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
+        name: `Rachel Taylor`,
+        short_name: `Rachel Taylor`,
+        description: `Personal graphic design and illustration portfolio of Rachel Taylor.`,
+        start_url: pathPrefix,
+        background_color: `#fff`,
+        theme_color: `#D9027D`,
         display: `standalone`,
         icon: `src/favicon.png`
       }
