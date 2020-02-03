@@ -1,5 +1,5 @@
-describe('app', () => {
-  it('should work', () => {
-    cy.visit('/')
+describe(`app`, () => {
+  it(`should work`, () => {
+    cy.visit(`/`)
   })
 })

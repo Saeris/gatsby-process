@@ -6,12 +6,14 @@ module.exports = {
   root: true,
   parser: "@typescript-eslint/parser", // Specifies the ESLint parser
   env: {
+    es6: true,
     browser: true,
     jest: true,
     node: true,
     "jest/globals": true
   },
   globals: {
+    Cypress: true,
     cy: true
   },
   plugins: [

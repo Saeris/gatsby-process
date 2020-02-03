@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import { Button as BaseButton } from "reakit/Button";
-import { lighten } from "polished"
 import { withoutProps } from "../../utils";
 
 export const Navigation = styled.nav.attrs({
