@@ -1,3 +1,5 @@
+const proxy = require(`http-proxy-middleware`);
+
 require(`dotenv`).config({
   path: `.env`
 });
@@ -38,6 +40,17 @@ module.exports = {
       }
     ]
   },
+  developMiddleware: app => {
+    app.use(
+      `/.netlify/functions/`,
+      proxy({
+        target: `http://localhost:9000`,
+        pathRewrite: {
+          "/.netlify/functions/": ``
+        }
+      })
+    );
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -55,6 +68,13 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-netlify-functions`,
+      options: {
+        functionsSrc: `${__dirname}/src/lambda`,
+        functionsOutput: `${__dirname}/lambda`
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `projects`,
@@ -65,7 +85,7 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         defaultLayouts: {
-          default: require.resolve(`./src/components/Markdown/index.ts`)
+          default: require.resolve(`./src/components/Layout/Markdown/index.ts`)
         },
         gatsbyRemarkPlugins: [
           `gatsby-remark-unwrap-images`,
@@ -84,7 +104,7 @@ module.exports = {
             resolve: `gatsby-remark-copy-linked-files`
           }
         ],
-        remarkPlugins: [require(`remark-breaks`), require(`remark-heading-id`)],
+        remarkPlugins: [require(`remark-breaks`), require(`remark-heading-id`), require(`remark-unwrap-images`)],
         extensions: [`.mdx`, `.md`]
       }
     },

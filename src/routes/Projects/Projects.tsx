@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, CardList, Card } from "../../components";
+import { Layout, Section, CardList, Card } from "../../components";
 import { ChildImageSharp } from "../../types";
 
 interface Project {
@@ -22,10 +22,12 @@ interface ProjectsProps {
 
 export const Projects: React.FC<ProjectsProps> = ({ data: { projects } }) => (
   <Layout>
-    <CardList>
-      {projects?.nodes?.map(({ id, frontmatter }) => (
-        <Card key={id} {...frontmatter} />
-      ))}
-    </CardList>
+    <Section>
+      <CardList>
+        {projects?.nodes?.map(({ id, frontmatter }) => (
+          <Card key={id} {...frontmatter} />
+        ))}
+      </CardList>
+    </Section>
   </Layout>
 );

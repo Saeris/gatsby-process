@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import Img from "gatsby-image";
-import { Link } from "../../Link";
+import { Link } from "../../Core";
 
 export const Container = styled.li(
   ({ theme }) => css`
@@ -29,9 +29,9 @@ export const Overlay = styled(Link)(
     color: ${theme.colors.white};
     text-decoration: none;
 
-		&:focus {
-			outline: none;
-		}
+    &:focus {
+      outline: none;
+    }
 
     &:hover,
     &:focus {

@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/named
 import styled, { css, DefaultTheme } from "styled-components";
 import { Button } from "reakit/Button";
-import { withoutProps } from "../../utils";
+import { withoutProps } from "../../../utils";
 
 export type StyleProps = {
   disabled?: boolean;

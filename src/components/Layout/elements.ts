@@ -4,21 +4,18 @@ export const Main = styled.main(
   ({ theme }) => css`
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
   `
 );
 
-export const PageContent = styled.section(
+export const PageContent = styled.article(
   ({ theme }) => css`
     display: flex;
     flex-direction: column;
     align-self: center;
-    width: 80ch;
-    max-width: calc(128rem + 9.2rem);
+    width: 100%;
     min-height: calc(100vh - 16.4rem);
-    padding: 0 4.8rem;
     margin-top: 10.4rem;
     margin-bottom: 3rem;
-    box-sizing: border-box;
   `
 );

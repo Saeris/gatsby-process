@@ -1,6 +1,6 @@
 import React, { cloneElement, Children } from "react";
 import { MenuItemProps as ItemProps } from "reakit/Menu";
-import { Link } from "../Link";
+import { Link } from "../Core";
 import { Item, MenuIcon } from "./elements";
 
 interface MenuItemProps {

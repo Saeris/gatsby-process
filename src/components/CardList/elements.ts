@@ -2,6 +2,8 @@ import styled, { css } from "styled-components";
 
 export const CardList = styled.ul(
   ({ theme }) => css`
+    grid-column-start: 2;
+    grid-column-end: 14;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     grid-gap: 2rem;

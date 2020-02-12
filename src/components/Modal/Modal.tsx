@@ -1,7 +1,7 @@
 import React, { ComponentProps } from "react";
 import { useDialogState, DialogDisclosure, DialogBackdrop, Dialog } from "reakit/Dialog";
 import { Portal } from "reakit/Portal";
-import { Button } from "../Button";
+import { Button } from "../Core";
 import { Backdrop, Container } from "./elements";
 
 export interface ModalProps extends ComponentProps<typeof Button> {

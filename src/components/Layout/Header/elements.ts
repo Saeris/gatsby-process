@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { Link } from "../../Link";
+import { Link } from "../../Core";
 import { tracking } from "../../../utils";
 
 export const Container = styled.header(
@@ -8,7 +8,7 @@ export const Container = styled.header(
     position: fixed;
     top: 0;
     display: flex;
-    width: 100%;
+    width: 100vw;
     padding: 0;
     background-color: ${theme.colors.grays[100]};
   `
@@ -22,7 +22,6 @@ export const Navigation = styled.nav(
     align-items: center;
     width: 100%;
     padding: 2.4rem 3.6rem;
-    box-sizing: border-box;
   `
 );
 
@@ -75,19 +74,22 @@ export const NavLink = styled(Link)(
     text-decoration: none;
 
     &:focus {
-			outline: none;
-		}
+      outline: none;
+    }
 
     &.active {
       color: ${theme.colors.secondary.dark};
     }
 
-    h1, h2 {
+    h1,
+    h2 {
       transition: color 0.3s ease-in-out;
     }
 
-    &:hover, &:focus {
-      h1, h2 {
+    &:hover,
+    &:focus {
+      h1,
+      h2 {
         color: ${theme.colors.secondary.normal};
       }
 

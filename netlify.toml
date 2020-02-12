@@ -1,3 +1,4 @@
 [build]
   Command = "yarn build"
   Publish = "public"
+  Functions = "lambda"

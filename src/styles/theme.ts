@@ -1,4 +1,5 @@
 import "typeface-montserrat";
+import "typeface-varela-round";
 import "typeface-fira-code";
 
 export interface Bounds {
@@ -14,16 +15,20 @@ export interface Theme {
     size: (size: Bounds) => string;
   };
   breakpoints: {
-    xsmall: { min: 0, max: 599 },
-    small: { min: 600, max: 779 },
-    medium: { min: 780, max: 979 },
-    large: { min: 980, max: 1279 },
-    xlarge: { min: 1280, max: 1339 },
-    xxlarge: { min: 1340, max: 999e308 }
+    xsmall: { min: 0; max: 599 };
+    small: { min: 600; max: 779 };
+    medium: { min: 780; max: 979 };
+    large: { min: 980; max: 1279 };
+    xlarge: { min: 1280; max: 1339 };
+    xxlarge: { min: 1340; max: 999e308 };
   };
   fonts: {
+    /** Headers, Body Text, Forms */
     primary: "'Montserrat', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif";
+    /** Code Blocks, Pre-Formatted Text */
     code: "'Fira Code', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace";
+    /** Tabular Numbers, Prices, Counters */
+    numbers: "'Varela Round', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif";
   };
   fontSizes: {
     /** Footer Text, Captions, Code Blocks */
@@ -79,24 +84,8 @@ export interface Theme {
     white: "#fff";
     black: "#000";
   };
-  padding: (
-    "0.4rem"
-    | "0.8rem"
-    | "1.2rem"
-    | "1.6rem"
-    | "2rem"
-    | "2.4rem"
-    | "2.8rem"
-    | "3.2rem"
-    | "3.6rem"
-    | "4rem"
-  )[];
-  corners: (
-    "0.4rem"
-    | "0.6rem"
-    | "0.8rem"
-    | "1.2rem"
-  )[];
+  padding: ("0.4rem" | "0.8rem" | "1.2rem" | "1.6rem" | "2rem" | "2.4rem" | "2.8rem" | "3.2rem" | "3.6rem" | "4rem")[];
+  corners: ("0.4rem" | "0.6rem" | "0.8rem" | "1.2rem")[];
 }
 
 export const theme: Theme = {
@@ -135,7 +124,8 @@ export const theme: Theme = {
   },
   fonts: {
     primary: `'Montserrat', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif`,
-    code: `'Fira Code', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace`
+    code: `'Fira Code', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace`,
+    numbers: `'Varela Round', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif`
   },
   fontSizes: {
     tiny: `1.8rem`,
@@ -185,22 +175,6 @@ export const theme: Theme = {
     white: `#fff`,
     black: `#000`
   },
-  padding: [
-    `0.4rem`,
-    `0.8rem`,
-    `1.2rem`,
-    `1.6rem`,
-    `2rem`,
-    `2.4rem`,
-    `2.8rem`,
-    `3.2rem`,
-    `3.6rem`,
-    `4rem`
-  ],
-  corners: [
-    `0.4rem`,
-    `0.6rem`,
-    `0.8rem`,
-    `1.2rem`
-  ]
+  padding: [`0.4rem`, `0.8rem`, `1.2rem`, `1.6rem`, `2rem`, `2.4rem`, `2.8rem`, `3.2rem`, `3.6rem`, `4rem`],
+  corners: [`0.4rem`, `0.6rem`, `0.8rem`, `1.2rem`]
 };

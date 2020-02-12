@@ -403,11 +403,12 @@ module.exports = {
     "promise/prefer-await-to-callbacks": 2,
 
     // graphql
-
+    /*
     'graphql/template-strings': ['error', {
       env: 'apollo',
       schemaJsonFilepath: `./schema.json`,
       tagName: 'graphql',
     }]
+    */
   }
 };

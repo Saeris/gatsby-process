@@ -1,5 +1,5 @@
 import { object, string, number } from 'yup';
-import { Centered, Button, Form, Input, Group, Checkbox, RadioGroup, Radio, Pagination } from "../components";
+import { Centered, Aside, AsideContent, Button, Form, Input, Group, Checkbox, RadioGroup, Radio, Pagination } from "../components";
 
 # Typography
 
@@ -36,7 +36,26 @@ A URL for the source of the quotation may be given using the cite attribute, whi
 
 ## Images
 
+### Captioned Image
+
+You can add a caption to an image by adding the caption text in quotes after the image URL, such as in the following example: `![alt text](../images/about-us.jpg "The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet.")`
+
 ![alt text](../images/about-us.jpg "The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet.")
+
+
+### Floated Image
+
+<Aside side="left">
+
+![alt text](../images/about-us.jpg)
+
+</Aside>
+
+<AsideContent side="left">
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla, sem eu ultrices vehicula, erat dui ultrices justo, a pretium odio lacus vitae nulla. Vestibulum dictum mauris quis nulla pellentesque, id sollicitudin ipsum accumsan. Proin id ligula dignissim purus consequat lobortis imperdiet vel metus. Praesent varius, diam a efficitur convallis, dolor nisl sollicitudin ipsum, a convallis nibh nulla in odio. Nam vitae ultricies felis. Vestibulum semper porta fringilla. Suspendisse eget mauris vestibulum, volutpat leo eget, ullamcorper libero. Ut tincidunt tellus porta dui consequat vehicula. Pellentesque ut lacinia dolor. Duis eget tempus libero, ac commodo sem. Sed sit amet massa magna. Etiam eget vehicula urna. Fusce semper arcu arcu, non fringilla risus porttitor nec. Mauris sodales diam vel euismod tincidunt. In massa lectus, gravida vel consectetur id, imperdiet a felis.
+
+</AsideContent>
 
 ---
 
@@ -61,18 +80,31 @@ Represents a list of items. The only difference from the unordered list is that 
 3. Donec id eros eget quam aliquam gravida
 4. Vivamus convallis urna id felis
 5. Nulla porta tempus sapien
+    1. Donec non tortor in arcu mollis feugiat
+    2. Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+    3. Donec id eros eget quam aliquam gravida
+    4. Vivamus convallis urna id felis
+    5. Nulla porta tempus sapien
 6. Donec non tortor in arcu mollis feugiat
 7. Lorem ipsum dolor sit amet, consectetuer adipiscing elit
 8. Donec id eros eget quam aliquam gravida
 9. Vivamus convallis urna id felis
 10. Nulla porta tempus sapien
+11. Donec non tortor in arcu mollis feugiat
+12. Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+13. Donec id eros eget quam aliquam gravida
+14. Vivamus convallis urna id felis
+15. Nulla porta tempus sapien
 
 ### Definition Lists
 
 First Term
-  ~ First Definitions
+
+: First Definitions
+
 Second Term
-  ~ Second Definition 1
+
+: Second Definition 1
 
 ---
 

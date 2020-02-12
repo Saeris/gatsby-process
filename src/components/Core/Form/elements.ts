@@ -20,6 +20,7 @@ export const Container = styled(BaseForm)(
     flex-direction: column;
     align-items: center;
     width: 80ch;
+    max-width: 100%;
   `
 );
 

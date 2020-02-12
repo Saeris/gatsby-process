@@ -16,8 +16,8 @@ export const GlobalStyles = createGlobalStyle(
     html {
       margin: 0;
       border: 0;
-      box-sizing: border-box;
       font-size: 62.5%;
+      overflow-x: hidden;
 
       ${theme.media.lessThan(theme.breakpoints.small)} {
         font-size: calc(62.5% * 0.6);
