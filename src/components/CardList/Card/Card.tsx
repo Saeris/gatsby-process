@@ -1,17 +1,12 @@
 import React from "react";
 import { Container, Overlay, Preview, Title, Client } from "./elements";
-import { ChildImageSharp } from "../../../types";
+import { ProjectsQuery } from "../../../../types/graphql-types";
 
-interface CardProps {
-  slug: string;
-  banner: ChildImageSharp;
-  title: string;
-  client: string;
-}
+type CardProps = Partial<ProjectsQuery["projects"]["nodes"][0]["frontmatter"]>;
 
-export const Card: React.FC<CardProps> = ({ slug, banner, title, client }) => (
+export const Card: React.FC<CardProps> = ({ slug = ``, banner = {}, title = ``, client = `` }) => (
   <Container>
-    <Preview fluid={banner.childImageSharp.fluid} />
+    <Preview fluid={banner?.childImageSharp?.fluid} />
     <Overlay to={`/projects/${slug}`}>
       <Title>{title}</Title>
       <Client>{client}</Client>

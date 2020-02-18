@@ -72,13 +72,17 @@ export interface Theme {
     };
     grays: {
       100: "#F9F9F9";
-      200: "#F3EFEB"; // ltgray
-      300: "#EAE7E2"; // mdgray
+      /** ltgray */
+      200: "#F3EFEB";
+      /** mdgray */
+      300: "#EAE7E2";
       400: "#DEDAD4";
-      500: "#D7D4CD"; // wmgray
+      /** wmgray */
+      500: "#D7D4CD";
       600: "#B2AEA6";
       700: "#7C7A75";
-      800: "#56534F"; // dkgray
+      /** dkgray */
+      800: "#56534F";
       900: "#3C3C3C";
     };
     white: "#fff";

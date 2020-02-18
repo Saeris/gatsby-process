@@ -75,4 +75,4 @@ cypress/e2e/build
 .netlify
 
 # Netlify Functions Build Folder
-./lambda
+/lambda/
