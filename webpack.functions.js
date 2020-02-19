@@ -1,12 +1,17 @@
 const nodeExternals = require(`webpack-node-externals`);
 
 module.exports = {
+  ...(process.env.NODE_ENV === `production`
+    ? {}
+    : {
+        devtool: `inline-source-map`,
+        optimization: { minimize: false }
+      }),
   externals: [nodeExternals()],
-  optimization: { minimize: !!process.env.production },
   module: {
     rules: [
       {
-        test: /\.(mjs|js|jsx|ts|tsx)$/,
+        test: /\.(m?js|ts)$/,
         exclude: /(node_modules)/,
         use: {
           loader: `babel-loader`,

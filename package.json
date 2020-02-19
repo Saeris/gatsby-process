@@ -16,9 +16,9 @@
     "url": "https://github.com/Saeris/Gatsby-Portfolio-Template/issues"
   },
   "scripts": {
-    "build": "run-p -l build:**",
-    "build:app": "cross-env npx --node-arg '-r esm' gatsby build",
-    "build:lambda": "cross-env production=true LAMBDA=true netlify-lambda build src/lambda --config ./webpack.functions.js",
+    "build": "run-s build:**",
+    "build:app": "gatsby build",
+    "build:lambda": "cross-env NODE_ENV=`production` LAMBDA=true netlify-lambda build src/lambda --config ./webpack.functions.js",
     "dev": "yarn start",
     "start": "run-p -l start:**",
     "start:app": "cross-env CYPRESS_SUPPORT=y CHOKIDAR_USEPOLLING=true gatsby develop",
@@ -89,6 +89,7 @@
     "yup": "^0.28.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
     "@babel/plugin-transform-object-assign": "^7.8.3",
