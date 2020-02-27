@@ -9,7 +9,7 @@ const pathPrefix = `/`;
 module.exports = {
   pathPrefix,
   siteMetadata: {
-    siteUrl: `https://racheltaylor.design${pathPrefix}`,
+    siteUrl: `https://rtaylor.design${pathPrefix}`,
     pathPrefix,
     titleAlt: `Rachel Taylor - Graphic Designer & Illustrator`,
     description: `Personal graphic design and illustration portfolio of Rachel Taylor.`,
