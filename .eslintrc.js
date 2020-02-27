@@ -12,10 +12,6 @@ module.exports = {
     node: true,
     "jest/globals": true
   },
-  globals: {
-    Cypress: true,
-    cy: true
-  },
   plugins: [
     "@typescript-eslint", // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
     `import`, // https://github.com/benmosher/eslint-plugin-import

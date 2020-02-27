@@ -23,7 +23,6 @@ export const MenuButton = styled.button`
 `;
 
 export const List = styled(Menu).attrs({
-  modal: false,
   style: { top: `40px`, left: `inherit`, right: `0px`, transform: `none` }
 })`
   z-index: 999;

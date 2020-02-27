@@ -36,7 +36,7 @@ export const Menu: React.FC<MenuProps> = ({
       <MenuDisclosure as={as} {...menu} onClick={onToggle} disabled={disabled}>
         {label}
       </MenuDisclosure>
-      <List {...menu} aria-label={props[`aria-label`]}>
+      <List {...menu} modal={false} aria-label={props[`aria-label`]}>
         {children && (children as React.ReactElement[]).length
           ? (children as React.ReactElement[])
               .filter(child => child)
