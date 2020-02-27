@@ -1,6 +1,20 @@
 export { Button } from "./Button";
 export { Code, Pre, PreOrCode } from "./Code";
-export { Form, Input, Checkbox, Radio, Toggle, Label, Message, Remove, Push, Submit, Group, RadioGroup } from "./Form";
+export {
+  Form,
+  Input,
+  TextArea,
+  Checkbox,
+  Radio,
+  Toggle,
+  Label,
+  Message,
+  Remove,
+  Push,
+  Submit,
+  Group,
+  RadioGroup
+} from "./Form";
 export { Break } from "./Break";
 export { Section, Centered, Aside, AsideContent } from "./Container";
 export { H1, H2, H3, H4, H5, H6 } from "./Header";

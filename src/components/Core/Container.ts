@@ -17,21 +17,21 @@ export const Section = styled.section(
   ({ theme }) => css`
     display: grid;
     grid-template-columns:
-      [full-start siderbar-left-start]
+      [full-start siderbarLeft-start]
       ${sidebarWidth}
-      [siderbar-left-end wide-start aside-left-start]
+      [siderbarLeft-end wide-start asideLeft-start]
       ${columnWidth}
-      [content-start aside-content-right-start]
+      [content-start asideContentRight-start]
       repeat(2, ${columnWidth})
-      [aside-left-end aside-content-left-start]
+      [asideLeft-end asideContentLeft-start]
       repeat(4, ${columnWidth})
-      [aside-content-right-end aside-right-start]
+      [asideContentRight-end asideRight-start]
       repeat(2, ${columnWidth})
-      [content-end aside-content-left-end]
+      [content-end asideContentLeft-end]
       ${columnWidth}
-      [aside-right-end wide-end sidebar-right-start]
+      [asideRight-end wide-end sidebarRight-start]
       ${sidebarWidth}
-      [sidebar-right-end full-end];
+      [sidebarRight-end full-end];
     grid-column-gap: 1ch;
     align-items: center;
     width: 100%;

@@ -11,6 +11,7 @@ import {
   unstable_FormPushButton as BasePush,
   unstable_FormSubmitButton as BaseSubmit
 } from "reakit/Form";
+import TextareaAutosize from "react-autosize-textarea";
 import { Button } from "../Button";
 import { Action, IsActive, isActive, isValid } from "./Action";
 
@@ -24,8 +25,8 @@ export const Container = styled(BaseForm)(
   `
 );
 
-export const Input = styled(BaseInput)<{ valid: boolean }>(
-  ({ valid, theme }) => css`
+export const Input = styled(BaseInput)<{ valid?: boolean }>(
+  ({ valid = false, theme }) => css`
     display: inline-flex;
     align-items: center;
     width: 100%;
@@ -75,6 +76,11 @@ export const Input = styled(BaseInput)<{ valid: boolean }>(
     }
   `
 );
+
+export const TextArea = styled(Input).attrs({
+  forwardedAs: TextareaAutosize,
+  async: true
+})(({ theme }) => css``);
 
 interface ToggleStyles {
   active?: boolean;

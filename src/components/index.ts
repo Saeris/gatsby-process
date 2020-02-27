@@ -6,6 +6,7 @@ export {
   PreOrCode,
   Form,
   Input,
+  TextArea,
   Checkbox,
   Radio,
   Toggle,
