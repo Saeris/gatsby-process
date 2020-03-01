@@ -120,7 +120,7 @@
     "remark-breaks": "^1.0.3",
     "remark-heading-id": "^1.0.0",
     "remark-unwrap-images": "^1.0.0",
-    "webpack-node-externals": "^1.6.0"
+    "webpack-node-externals": "^1.7.2"
   },
   "resolutions": {
     "graphql": "^14.6.0"
