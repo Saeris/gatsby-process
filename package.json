@@ -71,7 +71,7 @@
     "typeface-montserrat": "0.0.75",
     "typeface-varela-round": "^0.0.71",
     "typeface-work-sans": "^0.0.72",
-    "typescript": "^3.8.2",
+    "typescript": "^3.8.3",
     "yup": "^0.28.1"
   },
   "devDependencies": {
