@@ -5,18 +5,18 @@ import { Container } from "./elements";
 type V = Record<any, any>;
 
 export interface FormProps extends Omit<React.ComponentProps<typeof Container>, "baseId" | "submit"> {
-	onChange?: (values: V) => void;
+  onChange?: (values: V) => void;
   onValidate?: initialFormState<V>["onValidate"];
   onSubmit?: initialFormState<V>["onSubmit"];
 }
 
 export const Form: React.FC<FormProps> = ({
-	baseId,
+  baseId,
   values = {},
-	validateOnBlur,
-	validateOnChange,
-	resetOnSubmitSucceed,
-	resetOnUnmount,
+  validateOnBlur,
+  validateOnChange,
+  resetOnSubmitSucceed,
+  resetOnUnmount,
   onChange = () => {},
   onValidate,
   onSubmit,
@@ -24,15 +24,15 @@ export const Form: React.FC<FormProps> = ({
   ...props
 }) => {
   const form = useFormState({
-		baseId,
-		values,
-		validateOnBlur,
-		validateOnChange,
-		resetOnSubmitSucceed,
-		resetOnUnmount,
-		onValidate,
-		onSubmit
-	});
+    baseId,
+    values,
+    validateOnBlur,
+    validateOnChange,
+    resetOnSubmitSucceed,
+    resetOnUnmount,
+    onValidate,
+    onSubmit
+  });
 
   useEffect(() => {
     onChange(form.values);
@@ -41,9 +41,12 @@ export const Form: React.FC<FormProps> = ({
   return (
     <Container {...form} {...props}>
       {children && (children as React.ReactElement[]).length
-        ? (children as React.ReactElement[])
-            .filter(child => child)
-            .map((child, i) => cloneElement(Children.only(child), { ...form, key: i }))
+        ? (children as React.ReactElement[]).reduce((cloned: React.ReactElement[], child, i) => {
+            if (child) {
+              cloned.push(cloneElement(Children.only(child), { ...form, key: i }));
+            }
+            return cloned;
+          }, [])
         : !Array.isArray(children) && cloneElement(Children.only(children as React.ReactElement), form)}
     </Container>
   );

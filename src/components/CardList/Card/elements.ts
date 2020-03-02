@@ -3,7 +3,7 @@ import Img from "gatsby-image";
 import { Link } from "../../Core";
 
 export const Container = styled.li(
-  ({ theme }) => css`
+  () => css`
     position: relative;
     display: grid;
     width: 100%;
@@ -61,10 +61,12 @@ export const Overlay = styled(Link)(
   `
 );
 
-export const Preview = styled(Img)`
-  object-fit: cover;
-  object-position: center center;
-`;
+export const Preview = styled(Img)(
+  () => css`
+    object-fit: cover;
+    object-position: center center;
+  `
+);
 
 export const Title = styled.h3(
   ({ theme }) => css`

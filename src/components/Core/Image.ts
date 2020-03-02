@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import BaseImg from "gatsby-image";
 
-export const Img = styled(BaseImg)(({ theme }) => css``);
+export const Img = styled(BaseImg)(() => css``);
 
 export const Figure = styled.figure(
   ({ theme }) => css`

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const CardList = styled.ul(
-  ({ theme }) => css`
+  () => css`
     grid-column: full;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));

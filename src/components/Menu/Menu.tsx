@@ -38,9 +38,12 @@ export const Menu: React.FC<MenuProps> = ({
       </MenuDisclosure>
       <List {...menu} modal={false} aria-label={props[`aria-label`]}>
         {children && (children as React.ReactElement[]).length
-          ? (children as React.ReactElement[])
-              .filter(child => child)
-              .map((child, i) => cloneElement(Children.only(child), { ...menu, key: i }))
+          ? (children as React.ReactElement[]).reduce((cloned: React.ReactElement[], child, i) => {
+              if (child) {
+                cloned.push(cloneElement(Children.only(child), { ...menu, key: i }));
+              }
+              return cloned;
+            }, [])
           : !Array.isArray(children) && cloneElement(Children.only(children as React.ReactElement), menu)}
       </List>
     </Container>

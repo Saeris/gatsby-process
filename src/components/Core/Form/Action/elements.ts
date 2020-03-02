@@ -52,7 +52,7 @@ interface InputProps {
 }
 
 export const Input = styled.input<InputProps>(
-  ({ theme }) => css`
+  () => css`
     position: absolute;
     opacity: 0;
     cursor: pointer;

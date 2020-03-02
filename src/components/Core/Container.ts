@@ -14,7 +14,7 @@ const singleColumnWidth = css`calc((72 / ${columns}) * 1ch)`;
 const columnWidth = css`minmax(0, ${singleColumnWidth})`;
 
 export const Section = styled.section(
-  ({ theme }) => css`
+  () => css`
     display: grid;
     grid-template-columns:
       [full-start siderbarLeft-start]

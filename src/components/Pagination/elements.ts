@@ -5,20 +5,24 @@ import { withoutProps } from "../../utils";
 export const Navigation = styled.nav.attrs({
   role: `navigation`,
   "aria-label": `Pagination Navigation`
-})``;
+})(() => css``);
 
-export const Controls = styled.ul`
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-`;
+export const Controls = styled.ul(
+  () => css`
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  `
+);
 
-export const Control = styled.li`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
+export const Control = styled.li(
+  () => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `
+);
 
 export const Button = styled(withoutProps(`active`)(BaseButton))<{
   active: boolean;

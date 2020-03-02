@@ -11,12 +11,12 @@ import {
   unstable_FormPushButton as BasePush,
   unstable_FormSubmitButton as BaseSubmit
 } from "reakit/Form";
-import TextareaAutosize from "react-autosize-textarea";
 import { Button } from "../Button";
 import { Action, IsActive, isActive, isValid } from "./Action";
 
 export const Container = styled(BaseForm)(
-  ({ theme }) => css`
+  () => css`
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,62 +25,74 @@ export const Container = styled(BaseForm)(
   `
 );
 
-export const Input = styled(BaseInput)<{ valid?: boolean }>(
-  ({ valid = false, theme }) => css`
-    display: inline-flex;
-    align-items: center;
-    width: 100%;
-    max-width: 40ch;
-    padding: calc((${theme.fontSizes.form} * 0.75) / 2) 1.5ch;
-    margin-bottom: ${theme.fontSizes.form};
-    border-radius: 0.5rem;
-    border: 0.1rem solid ${theme.colors.grays[500]};
-    border-bottom-color: ${valid ? theme.colors.grays[500] : theme.colors.secondary.normal};
-    background-color: transparent;
-    box-sizing: border-box;
-    color: ${theme.colors.black};
-    font-size: ${theme.fontSizes.form};
-    transition: 0.3s ease border-color;
-    outline: none;
+export const inputStyles = ({ valid = false, theme }: { valid?: boolean; theme: DefaultTheme }) => css`
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  max-width: 40ch;
+  padding: calc((${theme.fontSizes.form} * 0.75) / 2) 1.5ch;
+  margin-bottom: ${theme.fontSizes.form};
+  border-radius: 0.5rem;
+  border: 0.1rem solid ${theme.colors.grays[500]};
+  border-bottom-color: ${valid ? theme.colors.grays[500] : theme.colors.secondary.normal};
+  background-color: transparent;
+  box-sizing: border-box;
+  color: ${theme.colors.black};
+  font-size: ${theme.fontSizes.form};
+  transition: 0.3s ease border-color;
+  outline: none;
 
-    &:disabled {
-      background-color: ${theme.colors.grays[100]};
-      color: ${theme.colors.grays[500]};
-    }
+  &:disabled {
+    background-color: ${theme.colors.grays[100]};
+    color: ${theme.colors.grays[500]};
+  }
 
-    &:invalid {
-      border-bottom-color: ${theme.colors.secondary.normal};
-      color: ${theme.colors.secondary.normal};
-
-      &::placeholder {
-        color: ${theme.colors.secondary.normal};
-        opacity: 50%;
-      }
-
-      &:hover,
-      &:focus {
-        border-color: ${theme.colors.grays[700]};
-        border-bottom-color: ${theme.colors.secondary.normal};
-      }
-    }
+  &:invalid {
+    border-bottom-color: ${theme.colors.secondary.normal};
+    color: ${theme.colors.secondary.normal};
 
     &::placeholder {
-      color: ${valid ? theme.colors.grays[500] : theme.colors.secondary.normal};
-      font-style: italic;
+      color: ${theme.colors.secondary.normal};
+      opacity: 50%;
     }
 
-    &:hover:not(:disabled):not(:invalid),
-    &:focus:not(:disabled):not(:invalid) {
+    &:hover,
+    &:focus {
       border-color: ${theme.colors.grays[700]};
-      color: ${theme.colors.black};
+      border-bottom-color: ${theme.colors.secondary.normal};
     }
+  }
+
+  &::placeholder {
+    color: ${valid ? theme.colors.grays[500] : theme.colors.secondary.normal};
+    font-style: italic;
+  }
+
+  &:hover:not(:disabled):not(:invalid),
+  &:focus:not(:disabled):not(:invalid) {
+    border-color: ${theme.colors.grays[700]};
+    color: ${theme.colors.black};
+  }
+`;
+
+export const Input = styled(BaseInput)(inputStyles);
+
+export const InputShadow = styled.textarea.attrs({
+  "aria-hidden": true,
+  readOnly: true
+})(
+  () => css`
+    ${inputStyles}
+    visibility: hidden;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    widht: 0;
+    height: 0;
+    transform: translateZ(0);
   `
 );
-
-export const TextArea = styled(Input).attrs({
-  forwardedAs: TextareaAutosize,
-  async: true
-})(({ theme }) => css``);
 
 interface ToggleStyles {
   active?: boolean;
@@ -142,20 +154,20 @@ export const Radio = styled(Action).attrs({
   `
 );
 
-export const Toggle = styled(Action).attrs({ forwardedAs: BaseCheckbox })(({ theme }) => css``);
+export const Toggle = styled(Action).attrs({ forwardedAs: BaseCheckbox })(() => css``);
 
-export const Label = styled(BaseLabel)(({ theme }) => css``);
+export const Label = styled(BaseLabel)(() => css``);
 
-export const Message = styled(BaseMessage)(({ theme }) => css``);
+export const Message = styled(BaseMessage)(() => css``);
 
 export const Remove = styled(Button).attrs({
   forwardedAs: BaseRemove
-})(({ theme }) => css``);
+})(() => css``);
 
 export const Push = styled(Button).attrs({
   forwardedAs: BasePush
-})(({ theme }) => css``);
+})(() => css``);
 
 export const Submit = styled(Button).attrs({
   forwardedAs: BaseSubmit
-})(({ theme }) => css``);
+})(() => css``);

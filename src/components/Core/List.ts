@@ -27,7 +27,7 @@ const listStyles = ({ theme }: { theme: DefaultTheme }) => css`
 `;
 
 export const List = styled.ul(
-  ({ theme }) => css`
+  () => css`
     ${listStyles};
 
     li {
@@ -63,4 +63,4 @@ export const Ordered = styled.ol(
   `
 );
 
-export const Item = styled.li(({ theme }) => css``);
+export const Item = styled.li(() => css``);

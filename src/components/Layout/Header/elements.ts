@@ -15,7 +15,7 @@ export const Container = styled.header(
 );
 
 export const Navigation = styled.nav(
-  ({ theme }) => css`
+  () => css`
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -26,7 +26,7 @@ export const Navigation = styled.nav(
 );
 
 export const SiteInfo = styled.div(
-  ({ theme }) => css`
+  () => css`
     display: flex;
     flex: 0 0 auto;
   `

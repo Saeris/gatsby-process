@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Main = styled.main(
-  ({ theme }) => css`
+  () => css`
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -9,7 +9,7 @@ export const Main = styled.main(
 );
 
 export const PageContent = styled.article(
-  ({ theme }) => css`
+  () => css`
     display: flex;
     flex-direction: column;
     align-self: center;

@@ -3,6 +3,7 @@ import { Link, LinkProps } from "../Link";
 import { Base, ButtonIcon } from "./elements";
 
 export interface ButtonProps extends LinkProps, React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
+  type?: HTMLButtonElement["type"];
   Icon?: React.ReactType;
   danger?: boolean;
   secondary?: boolean;
