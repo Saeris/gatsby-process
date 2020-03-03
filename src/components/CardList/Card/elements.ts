@@ -1,4 +1,5 @@
-import styled, { css } from "styled-components";
+// eslint-disable-next-line import/named
+import styled, { css, DefaultTheme } from "styled-components";
 import Img from "gatsby-image";
 import { Link } from "../../Core";
 
@@ -68,24 +69,26 @@ export const Preview = styled(Img)(
   `
 );
 
+const cardText = ({ theme }: { theme: DefaultTheme }) => css`
+  z-index: 200;
+  color: ${theme.colors.white};
+  text-alignl: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+`;
+
 export const Title = styled.h3(
   ({ theme }) => css`
-    z-index: 200;
+    ${cardText};
     margin: 0;
     margin-bottom: 1rem;
-    color: ${theme.colors.white};
     font-size: ${theme.fontSizes.body};
-    opacity: 0;
-    transition: opacity 0.5s;
   `
 );
 
 export const Client = styled.span(
   ({ theme }) => css`
-    z-index: 200;
-    color: ${theme.colors.white};
+    ${cardText};
     font-size: ${theme.fontSizes.tiny};
-    opacity: 0;
-    transition: opacity 0.5s;
   `
 );
