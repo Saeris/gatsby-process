@@ -72,7 +72,7 @@ export const Preview = styled(Img)(
 const cardText = ({ theme }: { theme: DefaultTheme }) => css`
   z-index: 200;
   color: ${theme.colors.white};
-  text-alignl: center;
+  text-align: center;
   opacity: 0;
   transition: opacity 0.5s;
 `;
