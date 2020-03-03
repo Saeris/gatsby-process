@@ -26,6 +26,7 @@ export const Overlay = styled(Link)(
     align-items: center;
     width: 100%;
     height: 100%;
+    padding: 2rem;
     border: none;
     color: ${theme.colors.white};
     text-decoration: none;
