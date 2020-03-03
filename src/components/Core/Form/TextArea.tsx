@@ -14,7 +14,7 @@ const getStyleValue = (computedStyle: CSSStyleDeclaration, property: string) =>
 
 const useEnhancedEffect = typeof window === `undefined` ? useEffect : useLayoutEffect;
 
-interface TextArea extends FormInputProps<any, any>, FormStateReturn<any> {
+interface TextArea extends Partial<FormInputProps<any, any>>, Partial<FormStateReturn<any>> {
   rowsMin?: string | number;
   rowsMax?: string | number;
 }
@@ -118,7 +118,7 @@ export const TextArea: React.FC<TextArea> = ({ name, rowsMin = 1, rowsMax, style
 
   return (
     <>
-      <FormInput {...form} name={name}>
+      <FormInput {...(form as FormStateReturn<any>)} name={name}>
         {inputProps => (
           <Input
             {...inputProps}
