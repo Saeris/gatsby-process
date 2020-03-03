@@ -49,3 +49,4 @@ export {
 } from "./Core";
 export { Layout, Markdown, MarkdownLayout } from "./Layout";
 export { Pagination } from "./Pagination";
+export { ProjectNav } from "./ProjectNav";

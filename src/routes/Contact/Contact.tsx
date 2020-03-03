@@ -11,8 +11,8 @@ export const Contact: React.FC = () => (
         <Email />
         <Subject />
         <Message />
-				<Clear>Clear</Clear>
-				<Send>Send</Send>
+        <Clear>Clear</Clear>
+        <Send>Send</Send>
       </ContactForm>
     </Container>
   </Layout>
