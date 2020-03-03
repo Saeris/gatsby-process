@@ -1,22 +1,34 @@
-type Diff<T, U> = T extends U ? never : T;
+const reducer = (prev: Record<any, any>, [key, value]: [string, any]) => (keys: string[], include = true) => {
+  if (include ? keys.includes(key) : !keys.includes(key)) {
+    prev[key] = value;
+  }
+  return prev;
+};
 
-type Index = string | number | symbol;
-
-interface Extracted<T, K extends Index> {
-  original: T;
-  extracted: Omit<T, K> | Record<Index, any>;
-  excluded: Diff<T, K> | Record<Index, any>;
-}
-
-export const split = <T, K extends keyof T>(original: T, keys: K): Extracted<T, K> =>
+/**
+ * Takes an Object and returns a new Object which excludes the given keys
+ */
+export const omit = <T, K extends keyof T>(original: T, ...keys: K[]): Omit<T, K> =>
   Object.entries(original).reduce(
-    (prev, [key, value]) => {
-      if ((Array.isArray(keys) && keys.includes(String(key))) || typeof keys === `string` || `number` || `symbol`) {
-        prev.extracted[key] = value;
-      } else {
-        prev.excluded[key] = value;
-      }
-      return prev;
-    },
-    { original, extracted: {} as Record<Index, any>, excluded: {} as Record<Index, any> }
-  );
+    (prev, prop) => reducer(prev, prop)(keys as string[], false),
+    {} as Record<any, any>
+  ) as Omit<T, K>;
+
+/**
+ * Takes an Object and returns a new Object which only includes the given keys
+ */
+export const pick = <T, K extends keyof T>(original: T, ...keys: K[]): Pick<T, K> =>
+  Object.entries(original).reduce(
+    (prev, prop) => reducer(prev, prop)(keys as string[], true),
+    {} as Record<any, any>
+  ) as Pick<T, K>;
+
+/**
+ * Takes an Object and returns a tuple containing the original Object, a new Object containing only the given keys, and a new Object
+ * containing the remaining keys
+ */
+export const split = <T, K extends keyof T>(original: T, ...keys: K[]) => ({
+  original,
+  extracted: pick(original, ...keys),
+  excluded: omit(original, ...keys)
+});

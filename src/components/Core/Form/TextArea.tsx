@@ -1,19 +1,20 @@
 // Adapted from https://material-ui.com/components/textarea-autosize/
 import React, { useEffect, useLayoutEffect, useCallback, useRef, useState } from "react";
-import { unstable_FormInputProps as FormInputProps, unstable_FormInput as FormInput } from "reakit/Form";
-import { Input, InputShadow } from "./elements";
 import {
-    // omit,
-    // split,
-    debounce
-} from "../../../utils";
+  unstable_FormStateReturn as FormStateReturn,
+  unstable_FormInputProps as FormInputProps,
+  unstable_FormInput as FormInput,
+  unstable_useFormState as useFormState
+} from "reakit/Form";
+import { Input, InputShadow } from "./elements";
+import { split, debounce } from "../../../utils";
 
 const getStyleValue = (computedStyle: CSSStyleDeclaration, property: string) =>
   parseInt(computedStyle.getPropertyValue(property), 10) || 0;
 
 const useEnhancedEffect = typeof window === `undefined` ? useEffect : useLayoutEffect;
 
-interface TextArea extends FormInputProps<any, any> {
+interface TextArea extends FormInputProps<any, any>, FormStateReturn<any> {
   rowsMin?: string | number;
   rowsMax?: string | number;
 }
@@ -24,7 +25,7 @@ interface TextAreaState {
 }
 
 export const TextArea: React.FC<TextArea> = ({ name, rowsMin = 1, rowsMax, style, ...props }) => {
-  // const { extracted: form, excluded: rest } = split(props, omit(props, FormInputProps))
+  const { extracted: form, excluded: rest } = split(props, ...useFormState.__keys);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const shadowRef = useRef<HTMLTextAreaElement | null>(null);
   const renders = useRef(0);
@@ -117,10 +118,11 @@ export const TextArea: React.FC<TextArea> = ({ name, rowsMin = 1, rowsMax, style
 
   return (
     <>
-      <FormInput {...props} name={name}>
+      <FormInput {...form} name={name}>
         {inputProps => (
           <Input
             {...inputProps}
+            {...rest}
             as="textarea"
             ref={inputRef}
             rows={Number(rowsMin)}
