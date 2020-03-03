@@ -10,7 +10,7 @@ export const CardList = styled.ul(
     justify-self: center;
     width: 100%;
     max-width: 128rem;
-    padding: 2rem 0;
+    padding: 0;
     margin: 0;
     list-style: none;
   `

@@ -7,8 +7,9 @@ export const Container = styled.header(
     z-index: 8000;
     position: fixed;
     top: 0;
+    grid-row: header;
     display: flex;
-    width: 100vw;
+    width: 100%;
     padding: 0;
     background-color: ${theme.colors.grays[100]};
   `

@@ -14,6 +14,7 @@ export const GlobalStyles = createGlobalStyle(
     }
 
     html {
+      height: 100%;
       margin: 0;
       border: 0;
       font-size: 62.5%;
@@ -25,6 +26,7 @@ export const GlobalStyles = createGlobalStyle(
     }
 
     body {
+      min-height: 100%;
       padding: 0;
       margin: 0;
       border: 0;
