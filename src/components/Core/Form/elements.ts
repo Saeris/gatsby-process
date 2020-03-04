@@ -32,7 +32,6 @@ export const inputStyles = ({ valid = false, theme }: { valid?: boolean; theme: 
   max-width: 40ch;
   padding: calc((${theme.fontSizes.form} * 0.75) / 2) 1.5ch;
   margin-bottom: ${theme.fontSizes.form};
-  border-radius: 0.5rem;
   border: 0.1rem solid ${theme.colors.grays[500]};
   border-bottom-color: ${valid ? theme.colors.grays[500] : theme.colors.secondary.normal};
   background-color: transparent;

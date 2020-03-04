@@ -57,7 +57,6 @@ export const buttonStyles = ({ disabled = false, theme }: StyleProps) => css`
   max-width: 24ch;
   padding: calc((${theme.fontSizes.form} * 0.75) / 2) 1.5ch;
   border: none;
-  border-radius: 0.5rem;
   border: 0.1rem solid ${getBorderColor};
   background-color: transparent;
   box-sizing: border-box;
