@@ -48,6 +48,7 @@ export const NavLabel = styled.span(
   ({ theme }) => css`
     width: 100%;
     max-width: 30rem;
+    padding-top: 0.5rem;
     margin-top: 1rem;
     border-top: 1px solid ${theme.colors.grays[700]};
     color: ${theme.colors.grays[700]};

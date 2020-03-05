@@ -24,5 +24,6 @@ export { Img, Figure, Caption } from "./Image";
 export { Link } from "./Link";
 export { List, Ordered, Item } from "./List";
 export { Blockquote } from "./Quote";
+export { Svg } from "./Svg";
 export { Table, Row, Cell, TableHeader } from "./Table";
 export { Paragraph, Emphasis, Strong, Strikethrough, InlineCode } from "./Text";

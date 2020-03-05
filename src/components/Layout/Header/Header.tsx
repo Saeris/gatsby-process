@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Container, SiteInfo, Title, Headline, Navigation, Links, NavItem, NavLink } from "./elements";
+import { Container, SiteInfo, Logo, Title, Headline, Navigation, Links, NavItem, NavLink } from "./elements";
 
 const query = graphql`
   query Header {
@@ -43,6 +43,7 @@ export const Header: React.FC = () => {
       <Navigation>
         <SiteInfo>
           <NavLink to="/">
+            <Logo />
             <Title>{title}</Title>
             <Headline>{headline}</Headline>
           </NavLink>

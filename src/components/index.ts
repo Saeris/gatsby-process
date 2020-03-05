@@ -40,6 +40,7 @@ export {
   Ordered,
   Item,
   Blockquote,
+  Svg,
   Table,
   Row,
   Cell,

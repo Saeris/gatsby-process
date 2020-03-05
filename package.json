@@ -135,7 +135,7 @@
       "git add"
     ],
     "*.svg": [
-      "svgo --pretty --indent=2 --config=svgo.yml --multipass",
+      "svgo --pretty --indent=2 --multipass",
       "git add"
     ]
   },

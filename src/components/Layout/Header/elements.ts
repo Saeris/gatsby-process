@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { Link } from "../../Core";
 import { tracking } from "../../../utils";
+import { Logo as BaseLogo } from "./Logo";
 
 export const Container = styled.header(
   ({ theme }) => css`
@@ -28,13 +29,27 @@ export const Navigation = styled.nav(
 
 export const SiteInfo = styled.div(
   () => css`
-    display: flex;
+    a {
+      display: grid;
+      grid-template: "logo title" "logo headline";
+      grid-column-gap: 1.5rem;
+    }
     flex: 0 0 auto;
+  `
+);
+
+export const Logo = styled(BaseLogo)(
+  ({ theme }) => css`
+    grid-area: logo;
+    width: 7.2rem;
+    height: 6.8rem;
+    border-right: 0.1rem solid ${theme.colors.grays[800]};
   `
 );
 
 export const Title = styled.h1(
   ({ theme }) => css`
+    grid-area: title;
     padding: 0;
     margin: 0;
     color: ${theme.colors.black};
@@ -46,6 +61,7 @@ export const Title = styled.h1(
 
 export const Headline = styled.h2(
   ({ theme }) => css`
+    grid-area: headline;
     margin: 0;
     color: ${theme.colors.grays[800]};
     font-size: ${theme.fontSizes.tiny};

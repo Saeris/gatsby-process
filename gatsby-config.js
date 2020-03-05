@@ -13,7 +13,7 @@ module.exports = {
     pathPrefix,
     titleAlt: `Rachel Taylor - Graphic Designer & Illustrator`,
     description: `Personal graphic design and illustration portfolio of Rachel Taylor.`,
-    logo: `/logos/logo.png`,
+    logo: `/logos/logo.svg`,
     siteLanguage: `en`,
     ogLanguage: `en_US`,
     author: `Rachel Taylor`,
@@ -134,7 +134,7 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#D9027D`,
         display: `standalone`,
-        icon: `src/favicon.png`
+        icon: `static/logos/logo.svg`
       }
     },
     `gatsby-plugin-offline`,
