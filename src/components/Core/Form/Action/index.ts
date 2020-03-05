@@ -1,3 +1,5 @@
 export { Action } from "./Action";
-export { IsActive, isActive } from "./isActive";
-export { IsValid, isValid } from "./isValid";
+export { isActive } from "./isActive";
+export { IsActive } from "./isActive";
+export { isValid } from "./isValid";
+export { IsValid } from "./isValid";

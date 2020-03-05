@@ -1,5 +1,6 @@
 export { CardList, Card } from "./CardList";
 export {
+  AspectScale,
   Button,
   Code,
   Pre,
@@ -23,6 +24,8 @@ export {
   Centered,
   Aside,
   AsideContent,
+  singleColumnWidth,
+  columnWidth,
   H1,
   H2,
   H3,
@@ -48,5 +51,5 @@ export {
   InlineCode
 } from "./Core";
 export { Layout, Markdown, MarkdownLayout } from "./Layout";
+export { PageNavContext } from "./Layout";
 export { Pagination } from "./Pagination";
-export { ProjectNav } from "./ProjectNav";

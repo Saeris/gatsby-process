@@ -1,15 +1,14 @@
 import React from "react";
-import { Container, Overlay, Preview, Title, Client } from "./elements";
-import { ProjectsQuery } from "../../../../types/graphql-types";
+import { MdxFrontmatter } from "../../../../types/graphql-types";
+import { Container, Preview, Title, Client } from "./elements";
 
-type CardProps = Partial<ProjectsQuery["projects"]["nodes"][0]["frontmatter"]>;
+type CardProps = Partial<Pick<MdxFrontmatter, "title" | "client" | "slug" | "banner">>;
 
-export const Card: React.FC<CardProps> = ({ slug = ``, banner = {}, title = ``, client = `` }) => (
+export const Card: React.FC<CardProps> = ({ slug, banner, title = ``, client = `` }) => (
   <Container>
-    <Preview fluid={banner?.childImageSharp?.fluid} />
-    <Overlay to={`/projects/${slug}`}>
+    <Preview to={`/projects/${slug}`} img={banner} alt={`Navigate to Project ${title}`}>
       <Title>{title}</Title>
       <Client>{client}</Client>
-    </Overlay>
+    </Preview>
   </Container>
 );

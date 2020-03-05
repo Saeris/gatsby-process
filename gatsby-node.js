@@ -7,12 +7,28 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   } = await graphql(`
     query GetAllProjects {
-      projects: allMdx(filter: { fileAbsolutePath: { regex: "/projects/" } }) {
+      projects: allMdx(
+        filter: { fileAbsolutePath: { regex: "/projects/" } }
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
         nodes {
           id
           frontmatter {
             slug
             title
+            banner {
+              childImageSharp {
+                fluid(quality: 95, maxWidth: 1200) {
+                  base64
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                }
+              }
+            }
           }
         }
       }

@@ -9,9 +9,9 @@ const columns = 12;
 
 const sidebarWidth = css`minmax(15rem, 1fr)`;
 
-const singleColumnWidth = css`calc((72 / ${columns}) * 1ch)`;
+export const singleColumnWidth = css`calc((72 / ${columns}) * 1ch)`;
 
-const columnWidth = css`minmax(0, ${singleColumnWidth})`;
+export const columnWidth = css`minmax(0, ${singleColumnWidth})`;
 
 export const Section = styled.section(
   () => css`

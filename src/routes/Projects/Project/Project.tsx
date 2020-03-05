@@ -1,14 +1,11 @@
 import React from "react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { MarkdownLayout } from "../../../components";
-import { GetProjectQuery, MdxFrontmatter } from "../../../../types/graphql-types";
+import { MarkdownLayout, PageNavContext } from "../../../components";
+import { GetProjectQuery } from "../../../../types/graphql-types";
 
 interface ProjectProps {
   data: GetProjectQuery;
-  pageContext: {
-    prev?: Pick<MdxFrontmatter, "title" | "slug">;
-    next?: Pick<MdxFrontmatter, "title" | "slug">;
-  };
+  pageContext: PageNavContext;
 }
 
 export const Project: React.FC<ProjectProps> = ({ data: { project }, pageContext }) =>

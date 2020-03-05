@@ -273,7 +273,7 @@ module.exports = {
     "switch-colon-spacing": [2, { before: false, after: true }],
     "template-tag-spacing": [2, `never`],
     "unicode-bom": 0,
-    "wrap-regex": 2,
+    "wrap-regex": 0,
 
     // ECMAScript 6
     "arrow-body-style": [2, `as-needed`],

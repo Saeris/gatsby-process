@@ -1,3 +1,4 @@
+export { AspectScale } from "./AspectScale";
 export { Button } from "./Button";
 export { Code, Pre, PreOrCode } from "./Code";
 export {
@@ -17,7 +18,7 @@ export {
   RadioGroup
 } from "./Form";
 export { Break } from "./Break";
-export { Section, Centered, Aside, AsideContent } from "./Container";
+export { Section, Centered, Aside, AsideContent, singleColumnWidth, columnWidth } from "./Container";
 export { H1, H2, H3, H4, H5, H6 } from "./Header";
 export { Img, Figure, Caption } from "./Image";
 export { Link } from "./Link";
