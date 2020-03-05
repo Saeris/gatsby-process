@@ -1,10 +1,6 @@
-export interface IsActive {
-  name: string;
-  values: Record<any, any> | undefined;
-  value: any;
-}
+type IsActive = (options: { name: string; values: Record<any, any> | undefined; value: any }) => boolean;
 
-export const isActive = ({ name, values, value }: IsActive): boolean => {
+export const isActive: IsActive = ({ name, values, value }) => {
   const currentValue = values?.[name];
   switch (true) {
     case values && Array.isArray(currentValue):

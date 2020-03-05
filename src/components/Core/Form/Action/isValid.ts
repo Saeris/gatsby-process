@@ -1,11 +1,11 @@
-export interface IsValid {
+type IsValid = (options: {
   name: string;
   value?: string;
   group?: boolean;
   errors: Record<any, any> | undefined;
-}
+}) => boolean;
 
-export const isValid = ({ name, value, group = false, errors }: IsValid): boolean => {
+export const isValid: IsValid = ({ name, value, group = false, errors }) => {
   if (!errors) return false;
   if (value && group) return !errors?.[value];
   return !errors?.[name];
