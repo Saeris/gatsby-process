@@ -65,14 +65,22 @@ interface SideProps {
 }
 
 export const Aside = styled.div<SideProps>(
-  ({ side }) => css`
+  ({ theme, side }) => css`
     ${side && `grid-column: aside${capitalize(side)};`};
+
+    ${theme.media.lessThan(theme.breakpoints.laptopLarge)} {
+      display: none;
+    }
   `
 );
 
 export const AsideContent = styled.div<SideProps>(
-  ({ side }) => css`
+  ({ theme, side }) => css`
     ${side && `grid-column: asideContent${capitalize(side)}`};
+
+    ${theme.media.lessThan(theme.breakpoints.laptopLarge)} {
+      grid-column: content;
+    }
   `
 );
 

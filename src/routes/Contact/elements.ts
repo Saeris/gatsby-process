@@ -1,12 +1,25 @@
 // eslint-disable-next-line import/named
 import styled, { css } from "styled-components";
-import { Section, Form, Input, TextArea, Reset, Submit } from "../../components";
+import { Section, Split, Form, Input, TextArea, Reset, Submit } from "../../components";
 
 export const Container = styled(Section)(() => css``);
 
+export const Content = styled(Split).attrs({
+  side: `left`
+})(
+  ({ theme }) => css`
+    align-self: flex-start;
+    padding-right: 2ch;
+
+    ${theme.media.lessThan(theme.breakpoints.laptopLarge)} {
+      padding: 0;
+    }
+  `
+);
+
 export const ContactForm = styled(Form)(
-  () => css`
-    grid-column: asideContentLeft;
+  ({ theme }) => css`
+    align-self: flex-start;
     display: grid;
     grid-template:
       "firstName lastName"
@@ -14,8 +27,9 @@ export const ContactForm = styled(Form)(
       "subject subject"
       "message message"
       "clear send";
+    grid-auto-columns: minMax(0, 24ch);
     grid-column-gap: 2ch;
-    margin-top: 5rem;
+    margin-top: calc(${theme.fontSizes.headline} / 2);
   `
 );
 
