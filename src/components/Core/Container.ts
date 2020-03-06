@@ -77,8 +77,12 @@ export const AsideContent = styled.div<SideProps>(
 );
 
 export const Split = styled.div<SideProps>(
-  ({ side }) => css`
+  ({ theme, side }) => css`
     ${side && `grid-column: split${capitalize(side)}`};
+
+    ${theme.media.lessThan(theme.breakpoints.laptopLarge)} {
+      grid-column: content;
+    }
   `
 );
 
