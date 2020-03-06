@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, H3, H4, Paragraph, Split } from "../../components";
+import { Layout, H4, Paragraph, Split } from "../../components";
 import { Container, Content, ContactForm, FirstName, LastName, Email, Subject, Message, Send, Clear } from "./elements";
 
 export const Contact: React.FC = () => (

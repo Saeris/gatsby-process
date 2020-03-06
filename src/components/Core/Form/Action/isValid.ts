@@ -1,4 +1,4 @@
-type IsValid = (options: {
+export type IsValid = (options: {
   name: string;
   value?: string;
   group?: boolean;
