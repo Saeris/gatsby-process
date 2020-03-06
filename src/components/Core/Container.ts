@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { capitalize } from "../../utils"
 
 export const content = css`
   grid-column: content;
@@ -14,22 +15,24 @@ export const singleColumnWidth = css`calc((72 / ${columns}) * 1ch)`;
 export const columnWidth = css`minmax(0, ${singleColumnWidth})`;
 
 export const Section = styled.section(
-  () => css`
+  ({ theme }) => css`
     display: grid;
     grid-template-columns:
       [full-start siderbarLeft-start]
       ${sidebarWidth}
-      [siderbarLeft-end wide-start asideLeft-start]
+      [siderbarLeft-end wide-start asideLeft-start splitLeft-start]
       ${columnWidth}
       [content-start asideContentRight-start]
       repeat(2, ${columnWidth})
       [asideLeft-end asideContentLeft-start]
-      repeat(4, ${columnWidth})
+      repeat(2, ${columnWidth})
+      [splitLeft-end splitRight-start]
+      repeat(2, ${columnWidth})
       [asideContentRight-end asideRight-start]
       repeat(2, ${columnWidth})
       [content-end asideContentLeft-end]
       ${columnWidth}
-      [asideRight-end wide-end sidebarRight-start]
+      [splitRight-end asideRight-end wide-end sidebarRight-start]
       ${sidebarWidth}
       [sidebarRight-end full-end];
     grid-column-gap: 1ch;
@@ -37,22 +40,45 @@ export const Section = styled.section(
     width: 100%;
     padding: 0 2rem;
     margin: 0;
+
+    ${theme.media.lessThan(theme.breakpoints.laptopLarge)} {
+      grid-template-columns:
+        [full-start wide-start asideLeft-start splitLeft-start]
+        ${columnWidth}
+        [content-start asideContentRight-start]
+        repeat(2, ${columnWidth})
+        [asideLeft-end asideContentLeft-start]
+        repeat(2, ${columnWidth})
+        [splitLeft-end splitRight-start]
+        repeat(2, ${columnWidth})
+        [asideContentRight-end asideRight-start]
+        repeat(2, ${columnWidth})
+        [content-end asideContentLeft-end]
+        ${columnWidth}
+        [splitRight-end asideRight-end wide-end full-end]
+    }
   `
 );
 
-interface AsideProps {
+interface SideProps {
   side?: "left" | "right" | undefined;
 }
 
-export const Aside = styled.div<AsideProps>(
+export const Aside = styled.div<SideProps>(
   ({ side }) => css`
-    ${side && `grid-column: aside-${side};`};
+    ${side && `grid-column: aside${capitalize(side)};`};
   `
 );
 
-export const AsideContent = styled.div<AsideProps>(
+export const AsideContent = styled.div<SideProps>(
   ({ side }) => css`
-    ${side && `grid-column: aside-content-${side}`};
+    ${side && `grid-column: asideContent${capitalize(side)}`};
+  `
+);
+
+export const Split = styled.div<SideProps>(
+  ({ side }) => css`
+    ${side && `grid-column: split${capitalize(side)}`};
   `
 );
 

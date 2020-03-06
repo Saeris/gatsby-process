@@ -13,7 +13,7 @@ module.exports = {
     pathPrefix,
     titleAlt: `Rachel Taylor - Graphic Designer & Illustrator`,
     description: `Personal graphic design and illustration portfolio of Rachel Taylor.`,
-    logo: `/logos/logo.svg`,
+    logo: `/logos/logo.png`,
     siteLanguage: `en`,
     ogLanguage: `en_US`,
     author: `Rachel Taylor`,
@@ -113,12 +113,6 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`
-      }
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: `UA-XXXXXX-X`
       }
     },
     `gatsby-plugin-sharp`,

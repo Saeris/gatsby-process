@@ -20,7 +20,7 @@ export const GlobalStyles = createGlobalStyle(
       font-size: 62.5%;
       overflow-x: hidden;
 
-      ${theme.media.lessThan(theme.breakpoints.small)} {
+      ${theme.media.lessThan(theme.breakpoints.tablet)} {
         font-size: calc(62.5% * 0.6);
       }
     }

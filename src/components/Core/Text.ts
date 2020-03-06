@@ -9,6 +9,10 @@ export const Paragraph = styled.p(
     margin-block-end: calc(0.75em / 2);
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+
+    &:only-child {
+      margin: 0;
+    }
   `
 );
 

@@ -15,12 +15,14 @@ export interface Theme {
     size: (size: Bounds) => string;
   };
   breakpoints: {
-    xsmall: { min: 0; max: 599 };
-    small: { min: 600; max: 779 };
-    medium: { min: 780; max: 979 };
-    large: { min: 980; max: 1279 };
-    xlarge: { min: 1280; max: 1339 };
-    xxlarge: { min: 1340; max: 999e308 };
+    mobileSmall: { min: 0; max: 320 };
+    mobileMedium: { min: 321; max: 375 };
+    mobileLarge: { min: 376; max: 425 };
+    tablet: { min: 426; max: 768 };
+    laptop: { min: 769; max: 1024 };
+    laptopLarge: { min: 1025; max: 1440 };
+    desktop: { min: 1441; max: 1920 };
+    desktopLarge: { min: 1921; max: 999e308 };
   };
   fonts: {
     /** Headers, Body Text, Forms */
@@ -119,12 +121,14 @@ export const theme: Theme = {
     }
   },
   breakpoints: {
-    xsmall: { min: 0, max: 599 },
-    small: { min: 600, max: 779 },
-    medium: { min: 780, max: 979 },
-    large: { min: 980, max: 1279 },
-    xlarge: { min: 1280, max: 1339 },
-    xxlarge: { min: 1340, max: 999e308 }
+    mobileSmall: { min: 0, max: 320 },
+    mobileMedium: { min: 321, max: 375 },
+    mobileLarge: { min: 376, max: 425 },
+    tablet: { min: 426, max: 768 },
+    laptop: { min: 769, max: 1024 },
+    laptopLarge: { min: 1025, max: 1440 },
+    desktop: { min: 1441, max: 1920 },
+    desktopLarge: { min: 1921, max: 999e308 }
   },
   fonts: {
     primary: `'Montserrat', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif`,

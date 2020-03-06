@@ -1,3 +1,4 @@
+export { capitalize } from "./capitalize";
 export { clamp } from "./clamp";
 export { debounce } from "./debounce";
 export { invariant, missingArgument } from "./invariant";
