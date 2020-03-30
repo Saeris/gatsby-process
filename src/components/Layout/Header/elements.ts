@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { Link } from "../../Core";
 import { tracking } from "../../../utils";
 import { Logo as BaseLogo } from "./Logo";
+import { MobileNav as BaseMobileNav } from "./MobileNav";
 
 export const Container = styled.header(
   ({ theme }) => css`
@@ -19,8 +20,13 @@ export const Container = styled.header(
 export const Navigation = styled.nav(
   () => css`
     position: relative;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns:
+      [siteinfo-start]
+      max-content
+      [siteinfo-end nav-start]
+      minmax(0, 1fr)
+      [nav-end];
     align-items: center;
     width: 100%;
     padding: 2.4rem 3.6rem;
@@ -29,12 +35,13 @@ export const Navigation = styled.nav(
 
 export const SiteInfo = styled.div(
   () => css`
+    grid-area: siteinfo;
+
     a {
       display: grid;
       grid-template: "logo title" "logo headline";
       grid-column-gap: 1.5rem;
     }
-    flex: 0 0 auto;
   `
 );
 
@@ -69,12 +76,28 @@ export const Headline = styled.h2(
   `
 );
 
-export const Links = styled.ul(
-  () => css`
+export const MobileNav = styled(BaseMobileNav)(({ theme }) => css`
+  grid-area: nav;
+  display: none;
+  justify-self: flex-end;
+
+  ${theme.media.lessThan(theme.breakpoints.laptop)} {
     display: flex;
+  }
+`)
+
+export const Links = styled.ul(
+  ({ theme }) => css`
+    grid-area: nav;
+    display: flex;
+    justify-self: flex-end;
     padding: 0;
     margin: 0;
     list-style: none;
+
+    ${theme.media.lessThan(theme.breakpoints.laptop)} {
+      display: none;
+    }
   `
 );
 

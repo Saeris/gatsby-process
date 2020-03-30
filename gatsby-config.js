@@ -31,10 +31,6 @@ module.exports = {
         to: `/about`
       },
       {
-        children: `Contact`,
-        to: `/contact`
-      },
-      {
         children: `LinkedIn`,
         to: `https://www.linkedin.com/in/rachel-n-taylor/`
       }
