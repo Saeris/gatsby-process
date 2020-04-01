@@ -95,7 +95,7 @@
     "@types/react-dom": "^16.9.6",
     "@types/react-helmet": "^5.0.15",
     "@types/styled-components": "^5.0.1",
-    "@types/testing-library__cypress": "^5.0.4",
+    "@types/testing-library__cypress": "^5.0.5",
     "@types/yup": "^0.26.34",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
