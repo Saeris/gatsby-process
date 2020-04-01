@@ -2324,10 +2324,10 @@
     "@types/react-native" "*"
     csstype "^2.2.0"
 
-"@types/testing-library__cypress@^5.0.4":
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/@types/testing-library__cypress/-/testing-library__cypress-5.0.4.tgz#8e53e4fdb019c86fdcd1ffef546b45bafe264ee3"
-  integrity sha512-WsIbL9PaPh33fTNz/REgpBXKQb1E8nz7nv964ILpDKdHq3H1IaumUy8vcMyKiLs9dKaBRoses8mkqcuMaQJhpQ==
+"@types/testing-library__cypress@^5.0.5":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@types/testing-library__cypress/-/testing-library__cypress-5.0.5.tgz#ca2a23eb03c48ecb50f411b3d5e62a218ac6b03b"
+  integrity sha512-FXRE98G+jkru7Dag6dFWs3M90BGMzDEBzox8Uro+7M70UcB1YVUetNVRyqYShFDLIDv+z3ZjV4ZeUmdgPuuyNw==
   dependencies:
     "@types/testing-library__dom" "*"
     cypress "*"
