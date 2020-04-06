@@ -9,6 +9,12 @@ export interface LinkProps {
   href?: ReachLinkProps<{}>["to"];
   external?: boolean;
   onClick?: React.MouseEventHandler;
+  // Google Analytics Props
+  target: string;
+  eventCategory: string;
+  eventAction: string;
+  eventLabel: string;
+  eventValue: number;
 }
 
 const isExternal = /^(?:[a-z]+:)?\/\//i;
@@ -39,6 +45,11 @@ export const Link: React.FC<LinkProps> = React.forwardRef<HTMLAnchorElement, Lin
       external = (to || href) && isExternal.test((to || href) as string),
       onClick,
       children,
+      target,
+      eventCategory,
+      eventAction,
+      eventLabel,
+      eventValue,
       ...props
     },
     ref
@@ -48,7 +59,21 @@ export const Link: React.FC<LinkProps> = React.forwardRef<HTMLAnchorElement, Lin
         ref={ref}
         href={getProtocol((to || href) as string)}
         {...props}
-        onClick={onClick}
+        onClick={e => {
+          if (typeof onClick === `function`) {
+            onClick(e);
+          }
+          if (window.ga) {
+            window.ga(`send`, `event`, {
+              eventCategory: eventCategory || `Outbound Link`,
+              eventAction: eventAction || `click`,
+              eventLabel: eventLabel || to || href,
+              eventValue,
+              transport: ``
+            });
+          }
+          return false;
+        }}
         target="_blank"
         rel="noopener noreferrer"
       >

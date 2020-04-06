@@ -5,6 +5,9 @@ const srcDir = join(__dirname, `src`);
 module.exports = {
   root: true,
   parser: "@typescript-eslint/parser", // Specifies the ESLint parser
+  globals: {
+    ga: "readonly"
+  },
   env: {
     es6: true,
     browser: true,
@@ -396,7 +399,7 @@ module.exports = {
     "promise/no-return-wrap": 2,
     "promise/param-names": 2,
     "promise/prefer-await-to-then": 2,
-    "promise/prefer-await-to-callbacks": 2,
+    "promise/prefer-await-to-callbacks": 2
 
     // graphql
     /*
