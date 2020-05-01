@@ -66,7 +66,7 @@
     "react-helmet": "^5.2.1",
     "react-icons": "3.9.0",
     "react-use": "^13.27.1",
-    "reakit": "1.0.0-rc.0",
+    "reakit": "1.0.0-rc.2",
     "regenerator-runtime": "^0.13.5",
     "remark-deflist": "^0.2.1",
     "styled-components": "^5.0.1",
