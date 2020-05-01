@@ -75,7 +75,7 @@
     "typeface-varela-round": "^0.0.71",
     "typeface-work-sans": "^0.0.72",
     "typescript": "^3.8.3",
-    "yup": "^0.28.3"
+    "yup": "^0.28.5"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
