@@ -2884,7 +2884,7 @@
     style-value-types "^3.1.7"
     tslib "^1.10.0"
 
-"@popperjs/core@^2.3.3":
+"@popperjs/core@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.4.0.tgz#0e1bdf8d021e7ea58affade33d9d607e11365915"
   integrity sha512-NMrDy6EWh9TPdSRiHmHH2ye1v5U0gBD7pRYwSwJvomx7Bm4GG04vu63dYiVzebLOx2obPpJugew06xVP0Nk7hA==
@@ -4609,7 +4609,7 @@ body-parser@1.19.0, body-parser@^1.18.3:
     raw-body "2.4.0"
     type-is "~1.6.17"
 
-body-scroll-lock@^3.0.1:
+body-scroll-lock@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/body-scroll-lock/-/body-scroll-lock-3.0.2.tgz#97df9bb3b17a0140c4a09b3568d146ae9af6b981"
   integrity sha512-PtItUun94iIupKry8J/h6SfRCLWZnly77KbPsTSKALmxfR282L8R0Ujkv7bydSZvLxAJS4sBJ3y/E6X8gYkGrQ==
@@ -14448,10 +14448,10 @@ readdirp@~3.4.0:
   dependencies:
     picomatch "^2.2.1"
 
-reakit-system@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/reakit-system/-/reakit-system-0.12.0.tgz#c402b4255bbfcdfbd671eb782a1e1df4536e52d1"
-  integrity sha512-lqesr7jmOEDEqKtPhEilCJNfYiLCeXOeU2lpPLBzO+CB2lsfF+A/NtrSpb3kuLu2mfIUSTTBxgaKdOBbfANmWA==
+reakit-system@^0.12.1:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/reakit-system/-/reakit-system-0.12.1.tgz#fc2f817f7c9159136d3f632181cad222aabe7c1f"
+  integrity sha512-92NRBxCHslIkME4y2Z5jPAOESiBbkOF2g0LE2FiPSzZwdJ9/geWfhP50y/WFAO1WIFChVREATSXqng1xhWGwwg==
   dependencies:
     reakit-utils "^0.12.0"
 
@@ -14467,14 +14467,14 @@ reakit-warning@^0.3.0:
   dependencies:
     reakit-utils "^0.12.0"
 
-reakit@1.0.0-rc.2:
-  version "1.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/reakit/-/reakit-1.0.0-rc.2.tgz#1b3739fe3c06b7a9e2e3e2e5bdd079c8bb0cf338"
-  integrity sha512-+Snfc9Y/VMozEDXld3CJtvqgTyFCE67FXBmaDcvBuO3z2U/ZAHiAOBprF+ZN/QhsiVNMk1faj791vDBTokxS4w==
+reakit@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/reakit/-/reakit-1.0.2.tgz#ff879f63a47b4d61051f8e991b187f14c8fc391e"
+  integrity sha512-l1yvXm9sjVGljsVxoPoSOWwsZWVMJZI7nWEgY+HqzPcsVH483F64oLamj21uCAbwpxfaEkQ/hS5g9RAbdfGEog==
   dependencies:
-    "@popperjs/core" "^2.3.3"
-    body-scroll-lock "^3.0.1"
-    reakit-system "^0.12.0"
+    "@popperjs/core" "^2.4.0"
+    body-scroll-lock "^3.0.2"
+    reakit-system "^0.12.1"
     reakit-utils "^0.12.0"
     reakit-warning "^0.3.0"
 
