@@ -69,7 +69,7 @@
     "reakit": "1.0.2",
     "regenerator-runtime": "^0.13.5",
     "remark-deflist": "^0.2.1",
-    "styled-components": "^5.1.0",
+    "styled-components": "^5.1.1",
     "typeface-fira-code": "^1.1.4",
     "typeface-montserrat": "0.0.75",
     "typeface-varela-round": "^0.0.71",
