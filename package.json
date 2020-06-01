@@ -58,7 +58,7 @@
     "gatsby-transformer-sharp": "^2.5.0",
     "graphql": "^14.6.0",
     "nodemailer": "^6.4.8",
-    "polished": "^3.5.2",
+    "polished": "^3.6.4",
     "prism-react-renderer": "^1.1.1",
     "react": "^16.13.1",
     "react-autosize-textarea": "^7.0.0",
