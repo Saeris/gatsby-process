@@ -46,7 +46,7 @@
     "gatsby-plugin-netlify-functions": "^0.0.3",
     "gatsby-plugin-offline": "^3.2.7",
     "gatsby-plugin-react-helmet": "^3.3.2",
-    "gatsby-plugin-sharp": "^2.6.9",
+    "gatsby-plugin-sharp": "^4.25.1",
     "gatsby-plugin-sitemap": "^2.4.3",
     "gatsby-plugin-styled-components": "^3.3.2",
     "gatsby-plugin-typegen": "^2.2.0",
